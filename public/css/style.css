@@ -1,0 +1,63 @@
+.card-body {
+    overflow-x: auto;
+}
+#body-main {
+    width: auto;
+    height: 60vh;
+}
+.link-primary {
+    color: black !important;
+    text-decoration: none;
+}
+.div-flex,
+.form-flex {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+.form-flex {
+    justify-content: start;
+}
+.div-center {
+    display: flex;
+    justify-content: center;
+}
+.table-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.btn-margin {
+    margin-left: 20px;
+}
+.button-login {
+    display: block;
+    width: 100%;
+}
+.imgHeader {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#app img {
+    width: auto;
+    height: 55px;
+}
+@media (max-width: 767.98px) {
+    #body-main {
+        width: 100%;
+        height: 40vh;
+    }
+    #app img {
+        width: 100%;
+    }
+    .div-flex,
+    .form-flex {
+        flex-direction: column;
+    }
+}
