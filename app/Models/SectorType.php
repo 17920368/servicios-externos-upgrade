@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class SectorType extends Model
 {
     use HasFactory;
+    /* -------------------------------------------------------------------------- */
+    /*                           Relation with Instances                          */
+    /* -------------------------------------------------------------------------- */
+    public function instances()
+    {
+        return $this->hasMany(Instance::class, 'id');
+    }
 }

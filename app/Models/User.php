@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /* -------------------------------------------------------------------------- */
+    /*                           Relation with instance                           */
+    /* -------------------------------------------------------------------------- */
+    public function agreements()
+    {
+        return $this->hasMany(Agreement::class, 'id');
+    }
 }

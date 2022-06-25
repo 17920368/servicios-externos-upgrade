@@ -44,6 +44,12 @@ class CreateInstancesTable extends Migration
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
             $table
+                ->foreignId('classification_id')
+                ->nullable()
+                ->constrained('classifications')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+            $table
                 ->foreignId('area_id')
                 ->nullable()
                 ->constrained('areas')
