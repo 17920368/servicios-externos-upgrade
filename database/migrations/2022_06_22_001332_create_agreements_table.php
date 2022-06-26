@@ -22,7 +22,7 @@ class CreateAgreementsTable extends Migration
             $table
                 ->foreignId('agreement_type_id')
                 ->nullable()
-                ->constrained('agreements_types')
+                ->constrained('agreement_types')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
             $table

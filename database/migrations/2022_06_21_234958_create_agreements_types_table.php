@@ -13,7 +13,7 @@ class CreateAgreementsTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('agreements_types', function (Blueprint $table) {
+        Schema::create('agreement_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateAgreementsTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agreements_types');
+        Schema::dropIfExists('agreement_types');
     }
 }
