@@ -61,3 +61,7 @@
         flex-direction: column;
     }
 }
+.ancla {
+    display: inline-block;
+    margin-right: 10px;
+}

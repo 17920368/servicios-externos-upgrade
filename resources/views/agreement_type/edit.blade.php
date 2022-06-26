@@ -10,55 +10,22 @@
                         </h1>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('roles.update', $role) }}">
+                        @if (session('success'))
+                            <div class="alert alert-success" agreement_type="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        <form method="POST" action="{{ route('tipo-convenio.update', $agreement_type->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="row mb-3">
-                                {!! Form::label('', 'Nombre del rol', [
-    'class' => 'col-md-4 col-form-label
-                            text-md-end',
-]) !!}
+                                {!! Form::label('', 'Nombre', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::text('name', $role->name, ['class' => 'form-control', 'autofocus', 'autofocus', 'id' => 'rol', 'onkeyup' => 'firstLetterToCapitalize(rol);']) !!}
+                                    {!! Form::text('name', $agreement_type->name, ['class' => 'form-control', 'autofocus', 'autofocus', 'id' => 'rol', 'onkeyup' => 'firstLetterToCapitalize(rol);']) !!}
                                     @error('name')
                                         <strong class="text-danger text-center mt-5">{{ $message }}</strong>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                {!! Form::label('permissions', 'Permisos', [
-    'class' => 'col-md-4 col-form-label
-                            text-md-end',
-]) !!}
-                                <div class="col-md-6">
-                                    <div class="form-check scroll-permissions">
-                                        @foreach ($permissions as $permission)
-                                            <label class="form-check-label inline_label">
-                                                {!! Form::checkbox('permissions[]', $permission->id, null, ['class' => 'form-check-input', 'id' => $permission->id]) !!}
-                                                {{ $permission->description }}
-                                            </label>
-                                        @endforeach
-                                    </div>
-                                    @error('permissions')
-                                        <strong class="text-danger text-center mt-5">{{ $message }}</strong>
-                                    @enderror
-                                </div>
-                                @foreach ($role->permissions as $registre)
-                                    @foreach ($permissions as $permission)
-                                        @if ($permission->id == $registre->id)
-                                            <script>
-                                                checkActive({{ $permission->id }});
-
-                                                function checkActive(idPermission) {
-                                                    let checkPermission = document.getElementById(
-                                                        idPermission
-                                                    );
-                                                    checkPermission.setAttribute("checked", "");
-                                                }
-                                            </script>
-                                        @endif
-                                    @endforeach
-                                @endforeach
                             </div>
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
@@ -66,8 +33,8 @@
                                         'type' => 'submit',
                                         'class' => 'btn btn-primary',
                                     ]) }}
-                                    <a class="btn btn-danger" href="{{ route('roles.index') }}"><i class="fa fa-ban"
-                                            aria-hidden="true"></i>
+                                    <a class="btn btn-danger" href="{{ route('tipo-convenio.index') }}"><i
+                                            class="fa fa-ban" aria-hidden="true"></i>
                                         Cancelar
                                     </a>
                                 </div>

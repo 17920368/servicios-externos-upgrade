@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes([
     'register' => false, // Register Routes...
@@ -25,5 +25,16 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('agreement', [AgreementTypeController::class, 'index']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/* -------------------------------------------------------------------------- */
+/*                               Agreement route                              */
+/* -------------------------------------------------------------------------- */
+Route::get('tipo-convenio', [AgreementTypeController::class, 'index'])->name('tipo-convenio.index')->middleware('auth');
+Route::get('tipo-convenio/crear', [AgreementTypeController::class, 'create'])->name('tipo-convenio.create')->middleware('auth');
+Route::post('tipo-convenio/store', [AgreementTypeController::class, 'store'])->name('tipo-convenio.store')->middleware('auth');
+Route::get('tipo-convenio/editar/{id}', [AgreementTypeController::class, 'edit'])->name('tipo-convenio.edit')->middleware('auth');
+Route::put('tipo-convenio/actualizar/{id}', [AgreementTypeController::class, 'update'])->name('tipo-convenio.update')->middleware('auth');
+Route::delete('tipo-convenio/eliminar/{id}', [AgreementTypeController::class, 'destroy'])->name('tipo-convenio.destroy')->middleware('auth');
+
+
+

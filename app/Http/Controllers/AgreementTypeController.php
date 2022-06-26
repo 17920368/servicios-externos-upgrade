@@ -9,7 +9,7 @@ class AgreementTypeController extends Controller
 {
     public function index()
     {
-        $agreements_types = AgreementType::all();
+        $agreements_types = AgreementType::paginate(10);
         return view('agreement_type.index', compact('agreements_types'));
     }
 
@@ -25,35 +25,34 @@ class AgreementTypeController extends Controller
         $agreement_type = new AgreementType();
         $agreement_type->name = $request->name;
         $agreement_type->save();
-        return redirect()->route('');
+        return redirect()->route('tipo-convenio.index')->with('success', 'Éxito al agregar.');
     }
     public function edit($id)
     {
         $agreement_type = AgreementType::find($id);
-        if ($agreement_type != 0) {
+        if ($agreement_type != null) {
             return view('agreement_type.edit', compact('agreement_type'));
         }
     }
     public function update(Request $request, $id)
     {
         $agreement_type = AgreementType::find($id);
-        if ($agreement_type != 0) {
+        if ($agreement_type != null) {
             $request->validate([
                 'name' => 'required'
             ]);
-            $agreement_type = new AgreementType();
             $agreement_type->name = $request->name;
             $agreement_type->save();
-            return redirect()->route('');
+            return redirect()->route('tipo-convenio.edit', $id)->with('success', 'Éxito al actualizar.');
         }
-        return redirect()->route('');
+        // return redirect()->route('');
     }
-    public function delete($id)
+    public function destroy($id)
     {
         $agreement_type = AgreementType::find($id);
-        if ($agreement_type != 0) {
+        if ($agreement_type != null) {
             $agreement_type->delete();
         }
-        return redirect()->route('');
+        return redirect()->route('tipo-convenio.index')->with('success', 'Éxito al eliminar.');
     }
 }
