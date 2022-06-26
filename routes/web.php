@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AgreementController;
+use App\Http\Controllers\AgreementTypeController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +26,4 @@ Auth::routes([
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('agreement', [AgreementController::class, 'index']);
+// Route::get('agreement', [AgreementTypeController::class, 'index']);
