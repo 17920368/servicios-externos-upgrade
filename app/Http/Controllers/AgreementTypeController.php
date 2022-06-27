@@ -45,7 +45,6 @@ class AgreementTypeController extends Controller
             $agreement_type->save();
             return redirect()->route('tipo-convenio.edit', $id)->with('success', 'Éxito al actualizar.');
         }
-        // return redirect()->route('');
     }
     public function destroy($id)
     {

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AgreementTypeController;
+use App\Http\Controllers\AreaController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,12 @@ Route::post('tipo-convenio/store', [AgreementTypeController::class, 'store'])->n
 Route::get('tipo-convenio/editar/{id}', [AgreementTypeController::class, 'edit'])->name('tipo-convenio.edit')->middleware('auth');
 Route::put('tipo-convenio/actualizar/{id}', [AgreementTypeController::class, 'update'])->name('tipo-convenio.update')->middleware('auth');
 Route::delete('tipo-convenio/eliminar/{id}', [AgreementTypeController::class, 'destroy'])->name('tipo-convenio.destroy')->middleware('auth');
-
-
-
+/* -------------------------------------------------------------------------- */
+/*                                 Area route                                 */
+/* -------------------------------------------------------------------------- */
+Route::get('area-conocimiento', [AreaController::class, 'index'])->name('area.index')->middleware('auth');
+Route::get('area-conocimiento/crear', [AreaController::class, 'create'])->name('area.create')->middleware('auth');
+Route::post('area-conocimiento/store', [AreaController::class, 'store'])->name('area.store')->middleware('auth');
+Route::get('area-conocimiento/editar/{id}', [AreaController::class, 'edit'])->name('area.edit')->middleware('auth');
+Route::put('area-conocimiento/actualizar/{id}', [AreaController::class, 'update'])->name('area.update')->middleware('auth');
+Route::delete('area-conocimiento/eliminar/{id}', [AreaController::class, 'destroy'])->name('area.destroy')->middleware('auth');
