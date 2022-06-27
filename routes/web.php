@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AgreementTypeController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\ClassificationController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,12 @@ Route::post('area-conocimiento/store', [AreaController::class, 'store'])->name('
 Route::get('area-conocimiento/editar/{id}', [AreaController::class, 'edit'])->name('area.edit')->middleware('auth');
 Route::put('area-conocimiento/actualizar/{id}', [AreaController::class, 'update'])->name('area.update')->middleware('auth');
 Route::delete('area-conocimiento/eliminar/{id}', [AreaController::class, 'destroy'])->name('area.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                            Classification route                            */
+/* -------------------------------------------------------------------------- */
+Route::get('giro', [ClassificationController::class, 'index'])->name('giro.index')->middleware('auth');
+Route::get('giro/crear', [ClassificationController::class, 'create'])->name('giro.create')->middleware('auth');
+Route::post('giro/store', [ClassificationController::class, 'store'])->name('giro.store')->middleware('auth');
+Route::get('giro/editar/{id}', [ClassificationController::class, 'edit'])->name('giro.edit')->middleware('auth');
+Route::put('giro/actualizar/{id}', [ClassificationController::class, 'update'])->name('giro.update')->middleware('auth');
+Route::delete('giro/eliminar/{id}', [ClassificationController::class, 'destroy'])->name('giro.destroy')->middleware('auth');

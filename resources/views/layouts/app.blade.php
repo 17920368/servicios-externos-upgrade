@@ -64,6 +64,23 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="far fa-handshake"></i> {{ __('CONVENIOS') }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('tipo-convenio.index') }}">
+                                        <i class="fa fa-file-contract"></i> {{ __('TIPO DE CONVENIO') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('area.index') }}">
+                                        <i class="fa fa-brain"></i> {{ __('ÁREA DE CONOCIMIENTO') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('giro.index') }}">
+                                        <i class="fa fa-layer-group"></i> {{ __('GIRO') }}
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fa fa-user-circle" aria-hidden="true"></i> {{ Auth::user()->name }}
                                 </a>
 

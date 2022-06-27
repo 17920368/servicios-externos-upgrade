@@ -5,11 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-12 col-xl-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h1 class="text-left">Listado área de conocimiento
-                        </h1>
-                    </div>
                     <div class="card-body">
+                        <h1 class="text-center h4">Listado área de conocimiento.
+                        </h1>
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
@@ -67,7 +65,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="4">No existen area</td>
+                                        <td colspan="4">No existen áreas de conocimientos.</td>
                                     </tr>
                                 @endif
                             </tbody>

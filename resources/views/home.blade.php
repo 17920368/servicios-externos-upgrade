@@ -1,23 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-center text-primary">
+                        <h2>{{ __('PLATAFORMA DE LA OFICINA SERVICIOS EXTERNOS') }}</h2>
+                    </div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                    <div class="card-body" id="body-main"
+                        style=" background-image: url({{ asset('img/bg-juarez.jpg') }}); background-size: cover"
+                        @if (session('status')) <div class="alert alert-success" role="alert">
                             {{ session('status') }}
+                        </div> @endif
                         </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+            {{-- <script>
+        window.onload = function() {
+            mostrarNotificacion();
+        };
+        function mostrarNotificacion() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '¡ESTATUS DE CONVENIOS ACTUALIZADOS!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    </script> --}}
+        @endsection

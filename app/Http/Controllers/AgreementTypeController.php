@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class AgreementTypeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $agreements_types = AgreementType::paginate(10);
+        if ($request->search) {
+            $agreements_types = AgreementType::where('name', 'like', '%' . $request->search . '%')->paginate(10);
+        }
+
         return view('agreement_type.index', compact('agreements_types'));
     }
 
