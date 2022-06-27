@@ -6,7 +6,7 @@
             <div class="col-md-10 col-lg-12 col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="text-center h4">Listado tipo de convenios
+                        <h1 class="text-center h4">Listado tipos de convenios
                         </h1>
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

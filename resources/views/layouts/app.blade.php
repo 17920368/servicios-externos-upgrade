@@ -76,6 +76,9 @@
                                     <a class="dropdown-item" href="{{ route('giro.index') }}">
                                         <i class="fa fa-layer-group"></i> {{ __('GIRO') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('indicador.index') }}">
+                                        <i class="fa fa-bullseye"></i> {{ __('INDICADOR SYSAD') }}
+                                    </a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">

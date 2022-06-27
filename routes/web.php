@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AgreementTypeController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\ClassificationController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -55,3 +56,12 @@ Route::post('giro/store', [ClassificationController::class, 'store'])->name('gir
 Route::get('giro/editar/{id}', [ClassificationController::class, 'edit'])->name('giro.edit')->middleware('auth');
 Route::put('giro/actualizar/{id}', [ClassificationController::class, 'update'])->name('giro.update')->middleware('auth');
 Route::delete('giro/eliminar/{id}', [ClassificationController::class, 'destroy'])->name('giro.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                               Indicator route                              */
+/* -------------------------------------------------------------------------- */
+Route::get('indicador', [IndicatorController::class, 'index'])->name('indicador.index')->middleware('auth');
+Route::get('indicador/crear', [IndicatorController::class, 'create'])->name('indicador.create')->middleware('auth');
+Route::post('indicador/store', [IndicatorController::class, 'store'])->name('indicador.store')->middleware('auth');
+Route::get('indicador/editar/{id}', [IndicatorController::class, 'edit'])->name('indicador.edit')->middleware('auth');
+Route::put('indicador/actualizar/{id}', [IndicatorController::class, 'update'])->name('indicador.update')->middleware('auth');
+Route::delete('indicador/eliminar/{id}', [IndicatorController::class, 'destroy'])->name('indicador.destroy')->middleware('auth');
