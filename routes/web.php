@@ -4,6 +4,8 @@ use App\Http\Controllers\AgreementTypeController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\ClassificationController;
+use App\Http\Controllers\ScopeController;
+use App\Http\Controllers\SectorTypeController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +67,21 @@ Route::post('indicador/store', [IndicatorController::class, 'store'])->name('ind
 Route::get('indicador/editar/{id}', [IndicatorController::class, 'edit'])->name('indicador.edit')->middleware('auth');
 Route::put('indicador/actualizar/{id}', [IndicatorController::class, 'update'])->name('indicador.update')->middleware('auth');
 Route::delete('indicador/eliminar/{id}', [IndicatorController::class, 'destroy'])->name('indicador.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                               Scope route                                  */
+/* -------------------------------------------------------------------------- */
+Route::get('alcance', [ScopeController::class, 'index'])->name('alcance.index')->middleware('auth');
+Route::get('alcance/crear', [ScopeController::class, 'create'])->name('alcance.create')->middleware('auth');
+Route::post('alcance/store', [ScopeController::class, 'store'])->name('alcance.store')->middleware('auth');
+Route::get('alcance/editar/{id}', [ScopeController::class, 'edit'])->name('alcance.edit')->middleware('auth');
+Route::put('alcance/actualizar/{id}', [ScopeController::class, 'update'])->name('alcance.update')->middleware('auth');
+Route::delete('alcance/eliminar/{id}', [ScopeController::class, 'destroy'])->name('alcance.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                               Sector type route                            */
+/* -------------------------------------------------------------------------- */
+Route::get('tipo-sector', [SectorTypeController::class, 'index'])->name('tipo-sector.index')->middleware('auth');
+Route::get('tipo-sector/crear', [SectorTypeController::class, 'create'])->name('tipo-sector.create')->middleware('auth');
+Route::post('tipo-sector/store', [SectorTypeController::class, 'store'])->name('tipo-sector.store')->middleware('auth');
+Route::get('tipo-sector/editar/{id}', [SectorTypeController::class, 'edit'])->name('tipo-sector.edit')->middleware('auth');
+Route::put('tipo-sector/actualizar/{id}', [SectorTypeController::class, 'update'])->name('tipo-sector.update')->middleware('auth');
+Route::delete('tipo-sector/eliminar/{id}', [SectorTypeController::class, 'destroy'])->name('tipo-sector.destroy')->middleware('auth');

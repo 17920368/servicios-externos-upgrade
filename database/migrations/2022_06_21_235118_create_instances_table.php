@@ -34,7 +34,7 @@ class CreateInstancesTable extends Migration
             $table
                 ->foreignId('sector_type_id')
                 ->nullable()
-                ->constrained('sectors_types')
+                ->constrained('sector_types')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
             $table

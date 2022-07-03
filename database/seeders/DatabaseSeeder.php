@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(AreaSeeder::class);
         $this->call(AgreementTypeSeeder::class);
+        $this->call(UserSeeder::class);
     }
 }

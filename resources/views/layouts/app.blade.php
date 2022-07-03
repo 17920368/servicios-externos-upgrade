@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
     <link rel="shortcut icon" href="{{ asset('img/itvo.ico') }}" sizes="16x16 24x24 36x36 48x48" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <!-- Fonts -->
@@ -64,17 +65,31 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="far fa-handshake"></i> {{ __('CONVENIOS') }}
+                                    <i class="far fa-building"></i> {{ __('INSTANCIA') }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('tipo-convenio.index') }}">
-                                        <i class="fa fa-file-contract"></i> {{ __('TIPO DE CONVENIO') }}
-                                    </a>
                                     <a class="dropdown-item" href="{{ route('area.index') }}">
                                         <i class="fa fa-brain"></i> {{ __('ÁREA DE CONOCIMIENTO') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('giro.index') }}">
                                         <i class="fa fa-layer-group"></i> {{ __('GIRO') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('alcance.index') }}">
+                                        <i class="fas fa-microscope"></i> {{ __('ALCANCE') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('tipo-sector.index') }}">
+                                        <i class="fas fa-bezier-curve"></i> {{ __('TIPO DE SECTOR') }}
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="far fa-handshake"></i> {{ __('CONVENIOS') }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('tipo-convenio.index') }}">
+                                        <i class="fa fa-file-contract"></i> {{ __('TIPO DE CONVENIO') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('indicador.index') }}">
                                         <i class="fa fa-bullseye"></i> {{ __('INDICADOR SYSAD') }}
@@ -94,7 +109,8 @@
                                         <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('SALIR') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </div>
