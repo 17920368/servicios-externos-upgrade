@@ -5,7 +5,9 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\ClassificationController;
 use App\Http\Controllers\ScopeController;
+use App\Http\Controllers\SectorController;
 use App\Http\Controllers\SectorTypeController;
+use App\Http\Controllers\SizeController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +87,21 @@ Route::post('tipo-sector/store', [SectorTypeController::class, 'store'])->name('
 Route::get('tipo-sector/editar/{id}', [SectorTypeController::class, 'edit'])->name('tipo-sector.edit')->middleware('auth');
 Route::put('tipo-sector/actualizar/{id}', [SectorTypeController::class, 'update'])->name('tipo-sector.update')->middleware('auth');
 Route::delete('tipo-sector/eliminar/{id}', [SectorTypeController::class, 'destroy'])->name('tipo-sector.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                               Sector route                                 */
+/* -------------------------------------------------------------------------- */
+Route::get('sector', [SectorController::class, 'index'])->name('sector.index')->middleware('auth');
+Route::get('sector/crear', [SectorController::class, 'create'])->name('sector.create')->middleware('auth');
+Route::post('sector/store', [SectorController::class, 'store'])->name('sector.store')->middleware('auth');
+Route::get('sector/editar/{id}', [SectorController::class, 'edit'])->name('sector.edit')->middleware('auth');
+Route::put('sector/actualizar/{id}', [SectorController::class, 'update'])->name('sector.update')->middleware('auth');
+Route::delete('sector/eliminar/{id}', [SectorController::class, 'destroy'])->name('sector.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                               Size route                                   */
+/* -------------------------------------------------------------------------- */
+Route::get('tamaño', [SizeController::class, 'index'])->name('tamanio.index')->middleware('auth');
+Route::get('tamaño/crear', [SizeController::class, 'create'])->name('tamanio.create')->middleware('auth');
+Route::post('tamaño/store', [SizeController::class, 'store'])->name('tamanio.store')->middleware('auth');
+Route::get('tamaño/editar/{id}', [SizeController::class, 'edit'])->name('tamanio.edit')->middleware('auth');
+Route::put('tamaño/actualizar/{id}', [SizeController::class, 'update'])->name('tamanio.update')->middleware('auth');
+Route::delete('tamaño/eliminar/{id}', [SizeController::class, 'destroy'])->name('tamanio.destroy')->middleware('auth');

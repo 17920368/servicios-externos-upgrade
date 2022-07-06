@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-12 col-xl-12">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body card-bg">
                         <h1 class="text-center h4">Listado indicadores sysad.
                         </h1>
                         @if (session('status'))
@@ -43,7 +43,7 @@
                                 <tr>
                                     <th scope="col">Indicador sysad</th>
                                     <th scope="col">Descripción</th>
-                                    <th scope="col" colspan="2">Acciones</th>
+                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,4 +80,13 @@
             </div>
         </div>
     </div>
+    <style>
+        .card-bg {
+            background-image: url('{{ asset('img/itvo.ico') }}');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 20%;
+            background-opacity: 0.5;
+        }
+    </style>
 @endsection

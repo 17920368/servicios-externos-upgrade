@@ -78,7 +78,13 @@
                                         <i class="fas fa-microscope"></i> {{ __('ALCANCE') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('tipo-sector.index') }}">
-                                        <i class="fas fa-bezier-curve"></i> {{ __('TIPO DE SECTOR') }}
+                                        <i class="fas fa-bezier-curve"></i> {{ __('SECTOR') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('sector.index') }}">
+                                        <i class="fas fa-industry"></i> {{ __('TIPO DE SECTOR') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('tamanio.index') }}">
+                                        <i class="fas fa-compress-arrows-alt"></i> {{ __('TAMAÑO') }}
                                     </a>
                                 </div>
                             </li>

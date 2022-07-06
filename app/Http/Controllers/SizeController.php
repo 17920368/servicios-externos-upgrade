@@ -28,7 +28,7 @@ class SizeController extends Controller
         $size = new Size();
         $size->name = $request->name;
         $size->save();
-        return redirect()->route('tamaño.index')->with('success', 'Éxito al agregar.');
+        return redirect()->route('tamanio.index')->with('success', 'Éxito al agregar.');
     }
     public function edit($id)
     {
@@ -46,7 +46,7 @@ class SizeController extends Controller
             ]);
             $size->name = $request->name;
             $size->save();
-            return redirect()->route('tamaño.edit', $id)->with('success', 'Éxito al actualizar.');
+            return redirect()->route('tamanio.edit', $id)->with('success', 'Éxito al actualizar.');
         }
     }
     public function destroy($id)
@@ -55,6 +55,6 @@ class SizeController extends Controller
         if ($size != null) {
             $size->delete();
         }
-        return redirect()->route('tamaño.index')->with('success', 'Éxito al eliminar.');
+        return redirect()->route('tamanio.index')->with('success', 'Éxito al eliminar.');
     }
 }

@@ -41,8 +41,8 @@
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col" colspan="2">Acciones</th>
+                                    <th scope="col">Tipo de convenio</th>
+                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>

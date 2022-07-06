@@ -42,7 +42,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Alcance</th>
-                                    <th scope="col" colspan="2">Acciones</th>
+                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
