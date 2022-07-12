@@ -1,3 +1,30 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Custom Var                                 */
+/* -------------------------------------------------------------------------- */
+:root {
+    --green: #00a055;
+    --blue: #0072bc;
+    --brown: #884d23;
+    --gray: #dcdcdc;
+}
+/* -------------------------------------------------------------------------- */
+/*                                General Style                               */
+/* -------------------------------------------------------------------------- */
+* {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+table,
+h1,
+h2,
+h3,
+a {
+    color: #25496b !important;
+}
+
+body {
+    text-align: left;
+    background: #eeeeee;
+}
 .card-body {
     overflow-x: auto;
 }
@@ -66,4 +93,54 @@
     display: inline-block;
     margin-right: 10px;
     border-radius: 50%;
+}
+/* -------------------------------------------------------------------------- */
+/*                                 Custom btn                                 */
+/* -------------------------------------------------------------------------- */
+.btn-primary {
+    color: var(--gray) !important;
+    background-color: var(--blue) !important;
+    border-color: var(--gray) !important;
+    border-width: 1.2px;
+}
+.btn-primary:hover {
+    color: var(--blue) !important;
+    background-color: var(--gray) !important;
+    border-color: var(--blue) !important;
+    border-width: 1.2px;
+}
+.btn-success {
+    color: var(--gray) !important;
+    background-color: var(--green) !important;
+    border-color: var(--gray) !important;
+    border-width: 1.2px;
+}
+.btn-success:hover {
+    color: var(--green) !important;
+    background-color: var(--gray) !important;
+    border-color: var(--green) !important;
+    border-width: 1.2px;
+}
+.btn-danger {
+    color: var(--gray) !important;
+    background-color: var(--brown) !important;
+    border-color: var(--gray) !important;
+    border-width: 1.2px;
+}
+.btn-danger:hover {
+    color: var(--brown) !important;
+    background-color: var(--gray) !important;
+    border-color: var(--brown) !important;
+    border-width: 1.2px;
+}
+.btn-secondary {
+    color: var(--green) !important;
+    background-color: var(--gray) !important;
+    border-color: var(--green) !important;
+    border-width: 1.2px;
+}
+.btn-secondary:hover {
+    color: var(--gray) !important;
+    background-color: var(--green) !important;
+    border-color: var(--gray) !important;
 }
