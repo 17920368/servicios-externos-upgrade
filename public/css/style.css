@@ -1,6 +1,7 @@
 .card-body {
     overflow-x: auto;
 }
+
 #body-main {
     width: auto;
     height: 60vh;
@@ -64,4 +65,5 @@
 .ancla {
     display: inline-block;
     margin-right: 10px;
+    border-radius: 50%;
 }

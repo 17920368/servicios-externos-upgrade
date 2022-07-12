@@ -132,5 +132,13 @@
         </main>
     </div>
 </body>
+<style>
+    .card-body {
+        background-image: url("{{ asset('img/itvo.ico') }}");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 20%;
+    }
+</style>
 
 </html>

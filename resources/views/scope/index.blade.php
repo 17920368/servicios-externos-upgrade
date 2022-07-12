@@ -19,7 +19,7 @@
                                 <i class="fa fa-plus"></i></a>
                             <a class=" btn btn-secondary my-2 ancla" href="{{ route('alcance.index') }}" role="button"
                                 title="Lista completa">
-                                <i class="fa fa-list" aria-hidden="true"></i></a>
+                                <i class="fas fa-list-ul"></i></a>
                             <div class="my-2">
                                 <form action="{{ route('alcance.index') }}"
                                     class="input-group d-flex justify-content-end">
@@ -27,7 +27,7 @@
                                         <input type="text" name="search" class="form-control" placeholder="Buscar"
                                             required />
                                     </div>
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary ancla">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </form>
@@ -52,14 +52,13 @@
                                             <td>{{ $scope->name }}</td>
                                             <td class="d-flex justify-content-start"><a title="Editar"
                                                     href="{{ route('alcance.edit', $scope->id) }}"
-                                                    class="btn btn-success ancla"><i class="fa fa-pencil-square-o"
-                                                        aria-hidden="true"></i></a>
+                                                    class="btn btn-success ancla"><i class="fas fa-pencil-alt"></i></a>
                                                 <form action="{{ route('alcance.destroy', $scope->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <button title="Eliminar" type="submit" class="btn btn-danger"
+                                                    <button title="Eliminar" type="submit" class="btn btn-danger ancla"
                                                         onclick="return confirm( '¿Está seguro de eliminar {{ $scope->name }}?') "><i
-                                                            class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                            class="fas fa-eraser"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
