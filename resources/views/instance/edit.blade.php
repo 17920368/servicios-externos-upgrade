@@ -121,7 +121,7 @@
                             <div class="row mb-3">
                                 {!! Form::label('', 'Tamaño de instancia', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::select('size_id', $zizes, $instance->size_id, [
+                                    {!! Form::select('size_id', $sizes, $instance->size_id, [
                                         'class' => 'form-select',
                                         'id' => 'size_id',
                                         'placeholder' => 'Seleccione',

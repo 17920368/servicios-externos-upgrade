@@ -27,10 +27,10 @@ class InstanceController extends Controller
         $scopes = Scope::pluck('name', 'id');
         $sectors = Sector::pluck('name', 'id');
         $sectors_types = SectorType::pluck('name', 'id');
-        $zizes = Size::pluck('name', 'id');
+        $sizes = Size::pluck('name', 'id');
         $classifications = Classification::pluck('name', 'id');
         $areas = Area::pluck('name', 'id');
-        return view('instance.create', compact('scopes', 'sectors', 'sectors_types', 'zizes', 'classifications', 'areas'));
+        return view('instance.create', compact('scopes', 'sectors', 'sectors_types', 'sizes', 'classifications', 'areas'));
     }
     public function store(Request $request)
     {
@@ -65,12 +65,12 @@ class InstanceController extends Controller
         $scopes = Scope::pluck('name', 'id');
         $sectors = Sector::pluck('name', 'id');
         $sectors_types = SectorType::pluck('name', 'id');
-        $zizes = Size::pluck('name', 'id');
+        $sizes = Size::pluck('name', 'id');
         $classifications = Classification::pluck('name', 'id');
         $areas = Area::pluck('name', 'id');
         $instance = Instance::find($id);
         if ($instance != null) {
-            return view('instance.edit', compact('instance', 'scopes', 'sectors', 'sectors_types', 'zizes', 'classifications', 'areas'));
+            return view('instance.edit', compact('instance', 'scopes', 'sectors', 'sectors_types', 'sizes', 'classifications', 'areas'));
         }
     }
     public function update(Request $request, $id)

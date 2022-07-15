@@ -15,13 +15,43 @@ class AgreementTypeSeeder extends Seeder
     public function run()
     {
         AgreementType::create([
-            'name' => 'MARCO'
+            'name' => 'Convenio marco de colaboración académica, científica y tecnológica'
         ]);
         AgreementType::create([
-            'name' => 'RESIDENCIA'
+            'name' => 'Convenios de residencias profesionales'
         ]);
         AgreementType::create([
-            'name' => 'SS'
+            'name' => 'Convenios de servicio social'
+        ]);
+        AgreementType::create([
+            'name' => 'Donación'
+        ]);
+        AgreementType::create([
+            'name' => 'Específico de colaboración'
+        ]);
+        AgreementType::create([
+            'name' => 'Acuerdo de pre-incubación, incubación y post-incubación'
+        ]);
+        AgreementType::create([
+            'name' => 'Acuerdo de servicio de consultoría y asistencia técnica'
+        ]);
+        AgreementType::create([
+            'name' => 'Acuerdo de incubación'
+        ]);
+        AgreementType::create([
+            'name' => 'Acuerdo de trabajo'
+        ]);
+        AgreementType::create([
+            'name' => 'Convenio de cooperación'
+        ]);
+        AgreementType::create([
+            'name' => 'Específico de colaboración ict academy parther'
+        ]);
+        AgreementType::create([
+            'name' => 'Carta de intención'
+        ]);
+        AgreementType::create([
+            'name' => 'Específico de colaboración'
         ]);
     }
 }
