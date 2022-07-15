@@ -18,7 +18,7 @@ class CreateInstancesTable extends Migration
             $table->string('name');
             $table->string('responsible');
             $table->string('email');
-            $table->integer('phone');
+            $table->string('phone');
             $table
                 ->foreignId('scope_id')
                 ->nullable()

@@ -4,6 +4,7 @@ use App\Http\Controllers\AgreementTypeController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\ClassificationController;
+use App\Http\Controllers\InstanceController;
 use App\Http\Controllers\ScopeController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\SectorTypeController;
@@ -105,3 +106,12 @@ Route::post('tamaño/store', [SizeController::class, 'store'])->name('tamanio.st
 Route::get('tamaño/editar/{id}', [SizeController::class, 'edit'])->name('tamanio.edit')->middleware('auth');
 Route::put('tamaño/actualizar/{id}', [SizeController::class, 'update'])->name('tamanio.update')->middleware('auth');
 Route::delete('tamaño/eliminar/{id}', [SizeController::class, 'destroy'])->name('tamanio.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                               Instance route                               */
+/* -------------------------------------------------------------------------- */
+Route::get('instancia', [InstanceController::class, 'index'])->name('instancia.index')->middleware('auth');
+Route::get('instancia/crear', [InstanceController::class, 'create'])->name('instancia.create')->middleware('auth');
+Route::post('instancia/store', [InstanceController::class, 'store'])->name('instancia.store')->middleware('auth');
+Route::get('instancia/editar/{id}', [InstanceController::class, 'edit'])->name('instancia.edit')->middleware('auth');
+Route::put('instancia/actualizar/{id}', [InstanceController::class, 'update'])->name('instancia.update')->middleware('auth');
+Route::delete('instancia/eliminar/{id}', [InstanceController::class, 'destroy'])->name('instancia.destroy')->middleware('auth');

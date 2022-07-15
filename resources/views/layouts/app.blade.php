@@ -86,6 +86,9 @@
                                     <a class="dropdown-item" href="{{ route('tamanio.index') }}">
                                         <i class="fas fa-compress-arrows-alt"></i> {{ __('TAMAÑO') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('instancia.index') }}">
+                                        <i class="fas fa-kaaba"></i> {{ __('INSTANCIA') }}
+                                    </a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
