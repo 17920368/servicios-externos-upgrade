@@ -16,8 +16,8 @@ class CreateAgreementsTable extends Migration
         Schema::create('agreements', function (Blueprint $table) {
             $table->id();
             $table->string('invoice');
-            $table->date('start-date');
-            $table->date('end-date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->string('status');
             $table
                 ->foreignId('agreement_type_id')

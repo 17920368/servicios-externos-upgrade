@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgreementController;
 use App\Http\Controllers\AgreementTypeController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\IndicatorController;
@@ -115,3 +116,12 @@ Route::post('instancia/store', [InstanceController::class, 'store'])->name('inst
 Route::get('instancia/editar/{id}', [InstanceController::class, 'edit'])->name('instancia.edit')->middleware('auth');
 Route::put('instancia/actualizar/{id}', [InstanceController::class, 'update'])->name('instancia.update')->middleware('auth');
 Route::delete('instancia/eliminar/{id}', [InstanceController::class, 'destroy'])->name('instancia.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                               Agreement route                              */
+/* -------------------------------------------------------------------------- */
+Route::get('convenio', [AgreementController::class, 'index'])->name('convenio.index')->middleware('auth');
+Route::get('convenio/crear', [AgreementController::class, 'create'])->name('convenio.create')->middleware('auth');
+Route::post('convenio/store', [AgreementController::class, 'store'])->name('convenio.store')->middleware('auth');
+Route::get('convenio/editar/{id}', [AgreementController::class, 'edit'])->name('convenio.edit')->middleware('auth');
+Route::put('convenio/actualizar/{id}', [AgreementController::class, 'update'])->name('convenio.update')->middleware('auth');
+Route::delete('convenio/eliminar/{id}', [AgreementController::class, 'destroy'])->name('convenio.destroy')->middleware('auth');
