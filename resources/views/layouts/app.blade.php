@@ -103,8 +103,43 @@
                                     <a class="dropdown-item" href="{{ route('indicador.index') }}">
                                         <i class="fa fa-bullseye"></i> {{ __('INDICADOR SYSAD') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('indicador.index') }}">
+                                        <i class="fas fa-crosshairs"></i> {{ __('OTRO INDICADOR') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('indicador.index') }}">
+                                        <i class="fas fa-school"></i> {{ __('CARRERAS') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('convenio.index') }}">
                                         <i class="fas fa-file-contract"></i> {{ __('CONVENIO') }}
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fas fa-list"></i> {{ __('REPORTES') }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">
+                                        <i class="fas fa-calendar-check"></i> {{ __('CONVENIOS VIGENTES') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">
+                                        <i class="fas fa-calendar-check"></i> {{ __('CONVENIOS MARCOS VIGENTES') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">
+                                        <i class="fas fa-calendar-check"></i> {{ __('CONVENIOS VIGENTES POR FECHA') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.finalizados') }}">
+                                        <i class="fas fa-calendar-times"></i> {{ __('CONVENIOS FINALIZADOS') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.concluidos') }}">
+                                        <i class="fas fa-calendar-minus"></i> {{ __('CONVENIOS CANCELADOS') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.concluidos') }}">
+                                        <i class="fas fa-list-alt"></i> {{ __('INDICADORES SYSAD') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.concluidos') }}">
+                                        <i class="fas fa-list-alt"></i> {{ __('OTROS INDICADORES') }}
                                     </a>
                                 </div>
                             </li>

@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                {!! Form::label('', 'Indicador', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
+                                {!! Form::label('', 'Indicador SYSAD', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
                                     {!! Form::select('indicator_id', $indicators, '', [
                                         'class' => 'form-select',
