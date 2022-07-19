@@ -15,7 +15,7 @@
                         @endif
                         <div class="d-flex justify-content-end flex-wrap">
                             <a class="btn btn-primary my-2 ancla" href="{{ route('indicador.create') }}" role="button"
-                                title="Crear indicador sysad">
+                                title="Crear indicador">
                                 <i class="fas fa-plus"></i></a>
                             <a class=" btn btn-secondary my-2 ancla" href="{{ route('indicador.index') }}" role="button"
                                 title="Lista completa">

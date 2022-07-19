@@ -30,10 +30,24 @@ class Agreement extends Model
         return $this->belongsTo(Indicator::class, 'indicator_id');
     }
     /* -------------------------------------------------------------------------- */
+    /*                    Relation Agreement and Indicator                        */
+    /* -------------------------------------------------------------------------- */
+    public function sysad_indicators()
+    {
+        return $this->belongsTo(SysadIndicator::class, 'sysad_id');
+    }
+    /* -------------------------------------------------------------------------- */
     /*                    Relation Agreement and User                             */
     /* -------------------------------------------------------------------------- */
     public function users()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    /* -------------------------------------------------------------------------- */
+    /*                         Relation Specialty and Agreement                   */
+    /* -------------------------------------------------------------------------- */
+    public function agreement_specialty()
+    {
+        return $this->belongsToMany(Specialty::class, 'agreements_specialties');
     }
 }
