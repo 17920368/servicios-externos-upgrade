@@ -106,7 +106,7 @@
                                     <a class="dropdown-item" href="{{ route('indicador.index') }}">
                                         <i class="fas fa-crosshairs"></i> {{ __('OTRO INDICADOR') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('indicador.index') }}">
+                                    <a class="dropdown-item" href="{{ route('carrera.index') }}">
                                         <i class="fas fa-school"></i> {{ __('CARRERAS') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('convenio.index') }}">

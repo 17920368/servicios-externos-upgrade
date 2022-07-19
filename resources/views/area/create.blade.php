@@ -20,8 +20,8 @@
                                         'autofocus',
                                         'required',
                                         'autofocus',
-                                        'id' => 'rol',
-                                        'onkeyup' => 'firstLetterToCapitalize(rol);',
+                                        'id' => 'area',
+                                        'onkeyup' => 'firstLetterToCapitalize(area);',
                                     ]) !!}
                                     @error('name')
                                         <strong class="text-danger text-center mt-5">{{ $message }}</strong>

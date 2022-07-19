@@ -10,6 +10,7 @@ use App\Http\Controllers\ScopeController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\SectorTypeController;
 use App\Http\Controllers\SizeController;
+use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\SysadIndicatorController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -36,15 +37,7 @@ Auth::routes([
 ]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-/* -------------------------------------------------------------------------- */
-/*                               Agreement route                              */
-/* -------------------------------------------------------------------------- */
-Route::get('tipo-convenio', [AgreementTypeController::class, 'index'])->name('tipo-convenio.index')->middleware('auth');
-Route::get('tipo-convenio/crear', [AgreementTypeController::class, 'create'])->name('tipo-convenio.create')->middleware('auth');
-Route::post('tipo-convenio/store', [AgreementTypeController::class, 'store'])->name('tipo-convenio.store')->middleware('auth');
-Route::get('tipo-convenio/editar/{id}', [AgreementTypeController::class, 'edit'])->name('tipo-convenio.edit')->middleware('auth');
-Route::put('tipo-convenio/actualizar/{id}', [AgreementTypeController::class, 'update'])->name('tipo-convenio.update')->middleware('auth');
-Route::delete('tipo-convenio/eliminar/{id}', [AgreementTypeController::class, 'destroy'])->name('tipo-convenio.destroy')->middleware('auth');
+
 /* -------------------------------------------------------------------------- */
 /*                                 Area route                                 */
 /* -------------------------------------------------------------------------- */
@@ -63,24 +56,6 @@ Route::post('giro/store', [ClassificationController::class, 'store'])->name('gir
 Route::get('giro/editar/{id}', [ClassificationController::class, 'edit'])->name('giro.edit')->middleware('auth');
 Route::put('giro/actualizar/{id}', [ClassificationController::class, 'update'])->name('giro.update')->middleware('auth');
 Route::delete('giro/eliminar/{id}', [ClassificationController::class, 'destroy'])->name('giro.destroy')->middleware('auth');
-/* -------------------------------------------------------------------------- */
-/*                               Indicator route                              */
-/* -------------------------------------------------------------------------- */
-Route::get('indicador', [IndicatorController::class, 'index'])->name('indicador.index')->middleware('auth');
-Route::get('indicador/crear', [IndicatorController::class, 'create'])->name('indicador.create')->middleware('auth');
-Route::post('indicador/store', [IndicatorController::class, 'store'])->name('indicador.store')->middleware('auth');
-Route::get('indicador/editar/{id}', [IndicatorController::class, 'edit'])->name('indicador.edit')->middleware('auth');
-Route::put('indicador/actualizar/{id}', [IndicatorController::class, 'update'])->name('indicador.update')->middleware('auth');
-Route::delete('indicador/eliminar/{id}', [IndicatorController::class, 'destroy'])->name('indicador.destroy')->middleware('auth');
-/* -------------------------------------------------------------------------- */
-/*                              Sysad Indicator route                         */
-/* -------------------------------------------------------------------------- */
-Route::get('indicador-sysad', [SysadIndicatorController::class, 'index'])->name('indicador-sysad.index')->middleware('auth');
-Route::get('indicador-sysad/crear', [SysadIndicatorController::class, 'create'])->name('indicador-sysad.create')->middleware('auth');
-Route::post('indicador-sysad/store', [SysadIndicatorController::class, 'store'])->name('indicador-sysad.store')->middleware('auth');
-Route::get('indicador-sysad/editar/{id}', [SysadIndicatorController::class, 'edit'])->name('indicador-sysad.edit')->middleware('auth');
-Route::put('indicador-sysad/actualizar/{id}', [SysadIndicatorController::class, 'update'])->name('indicador-sysad.update')->middleware('auth');
-Route::delete('indicador-sysad/eliminar/{id}', [SysadIndicatorController::class, 'destroy'])->name('indicador-sysad.destroy')->middleware('auth');
 /* -------------------------------------------------------------------------- */
 /*                               Scope route                                  */
 /* -------------------------------------------------------------------------- */
@@ -126,6 +101,42 @@ Route::post('instancia/store', [InstanceController::class, 'store'])->name('inst
 Route::get('instancia/editar/{id}', [InstanceController::class, 'edit'])->name('instancia.edit')->middleware('auth');
 Route::put('instancia/actualizar/{id}', [InstanceController::class, 'update'])->name('instancia.update')->middleware('auth');
 Route::delete('instancia/eliminar/{id}', [InstanceController::class, 'destroy'])->name('instancia.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                               Agreement type route                         */
+/* -------------------------------------------------------------------------- */
+Route::get('tipo-convenio', [AgreementTypeController::class, 'index'])->name('tipo-convenio.index')->middleware('auth');
+Route::get('tipo-convenio/crear', [AgreementTypeController::class, 'create'])->name('tipo-convenio.create')->middleware('auth');
+Route::post('tipo-convenio/store', [AgreementTypeController::class, 'store'])->name('tipo-convenio.store')->middleware('auth');
+Route::get('tipo-convenio/editar/{id}', [AgreementTypeController::class, 'edit'])->name('tipo-convenio.edit')->middleware('auth');
+Route::put('tipo-convenio/actualizar/{id}', [AgreementTypeController::class, 'update'])->name('tipo-convenio.update')->middleware('auth');
+Route::delete('tipo-convenio/eliminar/{id}', [AgreementTypeController::class, 'destroy'])->name('tipo-convenio.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                               Indicator route                              */
+/* -------------------------------------------------------------------------- */
+Route::get('indicador', [IndicatorController::class, 'index'])->name('indicador.index')->middleware('auth');
+Route::get('indicador/crear', [IndicatorController::class, 'create'])->name('indicador.create')->middleware('auth');
+Route::post('indicador/store', [IndicatorController::class, 'store'])->name('indicador.store')->middleware('auth');
+Route::get('indicador/editar/{id}', [IndicatorController::class, 'edit'])->name('indicador.edit')->middleware('auth');
+Route::put('indicador/actualizar/{id}', [IndicatorController::class, 'update'])->name('indicador.update')->middleware('auth');
+Route::delete('indicador/eliminar/{id}', [IndicatorController::class, 'destroy'])->name('indicador.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                              Sysad Indicator route                         */
+/* -------------------------------------------------------------------------- */
+Route::get('indicador-sysad', [SysadIndicatorController::class, 'index'])->name('indicador-sysad.index')->middleware('auth');
+Route::get('indicador-sysad/crear', [SysadIndicatorController::class, 'create'])->name('indicador-sysad.create')->middleware('auth');
+Route::post('indicador-sysad/store', [SysadIndicatorController::class, 'store'])->name('indicador-sysad.store')->middleware('auth');
+Route::get('indicador-sysad/editar/{id}', [SysadIndicatorController::class, 'edit'])->name('indicador-sysad.edit')->middleware('auth');
+Route::put('indicador-sysad/actualizar/{id}', [SysadIndicatorController::class, 'update'])->name('indicador-sysad.update')->middleware('auth');
+Route::delete('indicador-sysad/eliminar/{id}', [SysadIndicatorController::class, 'destroy'])->name('indicador-sysad.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                              Specialty route                               */
+/* -------------------------------------------------------------------------- */
+Route::get('carrera', [SpecialtyController::class, 'index'])->name('carrera.index')->middleware('auth');
+Route::get('carrera/crear', [SpecialtyController::class, 'create'])->name('carrera.create')->middleware('auth');
+Route::post('carrera/store', [SpecialtyController::class, 'store'])->name('carrera.store')->middleware('auth');
+Route::get('carrera/editar/{id}', [SpecialtyController::class, 'edit'])->name('carrera.edit')->middleware('auth');
+Route::put('carrera/actualizar/{id}', [SpecialtyController::class, 'update'])->name('carrera.update')->middleware('auth');
+Route::delete('carrera/eliminar/{id}', [SpecialtyController::class, 'destroy'])->name('carrera.destroy')->middleware('auth');
 /* -------------------------------------------------------------------------- */
 /*                               Agreement route                              */
 /* -------------------------------------------------------------------------- */

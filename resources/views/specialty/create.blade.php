@@ -6,27 +6,22 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h1 class="text-center">Editar tamaño de instancia
+                        <h1 class="text-center">Crear carrera
                         </h1>
                     </div>
                     <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        <form method="POST" action="{{ route('tamanio.update', $size->id) }}">
+                        <form method="POST" action="{{ route('carrera.store') }}" id="form">
                             @csrf
-                            @method('PUT')
                             <div class="row mb-3">
                                 {!! Form::label('', 'Nombre', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::text('name', $size->name, [
+                                    {!! Form::text('name', '', [
                                         'class' => 'form-control',
                                         'autofocus',
+                                        'required',
                                         'autofocus',
-                                        'id' => 'instance_size',
-                                        'onkeyup' => 'firstLetterToCapitalize(instance_size);',
+                                        'id' => 'specialty',
+                                        'onkeyup' => 'firstLetterToCapitalize(specialty);',
                                     ]) !!}
                                     @error('name')
                                         <strong class="text-danger text-center mt-5">{{ $message }}</strong>
@@ -35,11 +30,12 @@
                             </div>
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    {{ Form::button('<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar', [
+                                    {{ Form::button('<i class="fa fa-plus" aria-hidden="true"></i> Crear', [
                                         'type' => 'submit',
                                         'class' => 'btn btn-primary',
+                                        'id' => 'btn-submit',
                                     ]) }}
-                                    <a class="btn btn-danger" href="{{ route('tamanio.index') }}"><i class="fa fa-ban"
+                                    <a class="btn btn-danger" href="{{ route('carrera.index') }}"><i class="fa fa-ban"
                                             aria-hidden="true"></i>
                                         Cancelar
                                     </a>

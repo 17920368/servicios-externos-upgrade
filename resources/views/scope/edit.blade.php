@@ -21,7 +21,13 @@
                             <div class="row mb-3">
                                 {!! Form::label('', 'Nombre', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::text('name', $scope->name, ['class' => 'form-control', 'autofocus', 'autofocus', 'id' => 'rol', 'onkeyup' => 'firstLetterToCapitalize(rol);']) !!}
+                                    {!! Form::text('name', $scope->name, [
+                                        'class' => 'form-control',
+                                        'autofocus',
+                                        'autofocus',
+                                        'id' => 'scope',
+                                        'onkeyup' => 'firstLetterToCapitalize(scope);',
+                                    ]) !!}
                                     @error('name')
                                         <strong class="text-danger text-center mt-5">{{ $message }}</strong>
                                     @enderror

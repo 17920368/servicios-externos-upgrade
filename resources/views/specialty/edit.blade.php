@@ -15,18 +15,18 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('tamanio.update', $size->id) }}">
+                        <form method="POST" action="{{ route('carrera.update', $specialty->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="row mb-3">
                                 {!! Form::label('', 'Nombre', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::text('name', $size->name, [
+                                    {!! Form::text('name', $specialty->name, [
                                         'class' => 'form-control',
                                         'autofocus',
                                         'autofocus',
-                                        'id' => 'instance_size',
-                                        'onkeyup' => 'firstLetterToCapitalize(instance_size);',
+                                        'id' => 'specialty',
+                                        'onkeyup' => 'firstLetterToCapitalize(specialty);',
                                     ]) !!}
                                     @error('name')
                                         <strong class="text-danger text-center mt-5">{{ $message }}</strong>
@@ -39,7 +39,7 @@
                                         'type' => 'submit',
                                         'class' => 'btn btn-primary',
                                     ]) }}
-                                    <a class="btn btn-danger" href="{{ route('tamanio.index') }}"><i class="fa fa-ban"
+                                    <a class="btn btn-danger" href="{{ route('carrera.index') }}"><i class="fa fa-ban"
                                             aria-hidden="true"></i>
                                         Cancelar
                                     </a>
