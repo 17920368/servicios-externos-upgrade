@@ -100,7 +100,7 @@
                                     <a class="dropdown-item" href="{{ route('tipo-convenio.index') }}">
                                         <i class="fa fa-file-contract"></i> {{ __('TIPO DE CONVENIO') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('indicador.index') }}">
+                                    <a class="dropdown-item" href="{{ route('indicador-sysad.index') }}">
                                         <i class="fa fa-bullseye"></i> {{ __('INDICADOR SYSAD') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('indicador.index') }}">

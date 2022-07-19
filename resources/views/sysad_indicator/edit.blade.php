@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h1 class="text-center">Editar indicador
+                        <h1 class="text-center">Editar indicador sysad
                         </h1>
                     </div>
                     <div class="card-body">
@@ -15,7 +15,7 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('indicador.update', $indicator->id) }}">
+                        <form method="POST" action="{{ route('indicador-sysad.update', $indicator->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="row mb-3">
@@ -55,8 +55,8 @@
                                         'type' => 'submit',
                                         'class' => 'btn btn-primary',
                                     ]) }}
-                                    <a class="btn btn-danger" href="{{ route('indicador.index') }}"><i class="fa fa-ban"
-                                            aria-hidden="true"></i>
+                                    <a class="btn btn-danger" href="{{ route('indicador-sysad.index') }}"><i
+                                            class="fa fa-ban" aria-hidden="true"></i>
                                         Cancelar
                                     </a>
                                 </div>

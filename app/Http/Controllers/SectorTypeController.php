@@ -13,12 +13,12 @@ class SectorTypeController extends Controller
         if ($request->search) {
             $sectors_types = SectorType::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('sector-type.index', compact('sectors_types'));
+        return view('sector_type.index', compact('sectors_types'));
     }
 
     public function create()
     {
-        return view('sector-type.create');
+        return view('sector_type.create');
     }
     public function store(Request $request)
     {
@@ -34,7 +34,7 @@ class SectorTypeController extends Controller
     {
         $sector_type = SectorType::find($id);
         if ($sector_type != null) {
-            return view('sector-type.edit', compact('sector_type'));
+            return view('sector_type.edit', compact('sector_type'));
         }
     }
     public function update(Request $request, $id)

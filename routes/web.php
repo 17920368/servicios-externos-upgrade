@@ -10,6 +10,7 @@ use App\Http\Controllers\ScopeController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\SectorTypeController;
 use App\Http\Controllers\SizeController;
+use App\Http\Controllers\SysadIndicatorController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,15 @@ Route::post('indicador/store', [IndicatorController::class, 'store'])->name('ind
 Route::get('indicador/editar/{id}', [IndicatorController::class, 'edit'])->name('indicador.edit')->middleware('auth');
 Route::put('indicador/actualizar/{id}', [IndicatorController::class, 'update'])->name('indicador.update')->middleware('auth');
 Route::delete('indicador/eliminar/{id}', [IndicatorController::class, 'destroy'])->name('indicador.destroy')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                              Sysad Indicator route                         */
+/* -------------------------------------------------------------------------- */
+Route::get('indicador-sysad', [SysadIndicatorController::class, 'index'])->name('indicador-sysad.index')->middleware('auth');
+Route::get('indicador-sysad/crear', [SysadIndicatorController::class, 'create'])->name('indicador-sysad.create')->middleware('auth');
+Route::post('indicador-sysad/store', [SysadIndicatorController::class, 'store'])->name('indicador-sysad.store')->middleware('auth');
+Route::get('indicador-sysad/editar/{id}', [SysadIndicatorController::class, 'edit'])->name('indicador-sysad.edit')->middleware('auth');
+Route::put('indicador-sysad/actualizar/{id}', [SysadIndicatorController::class, 'update'])->name('indicador-sysad.update')->middleware('auth');
+Route::delete('indicador-sysad/eliminar/{id}', [SysadIndicatorController::class, 'destroy'])->name('indicador-sysad.destroy')->middleware('auth');
 /* -------------------------------------------------------------------------- */
 /*                               Scope route                                  */
 /* -------------------------------------------------------------------------- */
