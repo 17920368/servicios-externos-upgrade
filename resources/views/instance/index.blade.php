@@ -56,8 +56,10 @@
                                             <td>{{ $instance->responsible }}</td>
                                             <td>{{ $instance->email }}</td>
                                             <td>{{ $instance->phone }}</td>
-                                            <td class="d-flex justify-content-start"><a title="Editar"
-                                                    href="{{ route('instancia.edit', $instance->id) }}"
+                                            <td class="d-flex justify-content-start">
+                                                <a title="Convenio" href="{{ route('instancia.show', $instance->id) }}"
+                                                    class="btn btn-primary ancla"><i class="fas fa-file-contract"></i></a>
+                                                <a title="Editar" href="{{ route('instancia.edit', $instance->id) }}"
                                                     class="btn btn-success ancla"><i class="fas fa-pencil-alt"></i></a>
                                                 <form action="{{ route('instancia.destroy', $instance->id) }}"
                                                     method="post">

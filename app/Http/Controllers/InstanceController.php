@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agreement;
 use App\Models\Area;
 use App\Models\Classification;
 use App\Models\Instance;
@@ -60,6 +61,16 @@ class InstanceController extends Controller
         $instance->save();
         return redirect()->route('instancia.index')->with('success', 'Éxito al agregar.');
     }
+    public function show(Request $request, $id)
+    {
+
+        $status = ["Vigente", "Finalizado", "Cancelado"];
+        $agreements = Agreement::where('instance_id', '=', $id)->paginate(10);
+        // if ($request->search) {
+        //     $agreements = Agreement::where('name', 'like', '%' . $request->search . '%')->paginate(10);
+        // }
+        return view('instance.index-agreement', compact('agreements', 'status', 'id'));
+    }
     public function edit($id)
     {
         $scopes = Scope::pluck('name', 'id');
@@ -78,7 +89,16 @@ class InstanceController extends Controller
         $instance = Instance::find($id);
         if ($instance != null) {
             $request->validate([
-                'name' => 'required'
+                'name' => ['required', 'string'],
+                'responsible' => ['required', 'string'],
+                'email' => ['required', 'email'],
+                'phone' => ['required', 'string'],
+                'scope_id' => ['required', 'integer'],
+                'sector_id' => ['required', 'integer'],
+                'sector_type_id' => ['required', 'integer'],
+                'size_id' => ['required', 'integer'],
+                'classification_id' => ['required', 'integer'],
+                'area_id' => ['required', 'integer'],
             ]);
             $instance->name = $request->name;
             $instance->responsible = $request->responsible;

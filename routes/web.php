@@ -99,6 +99,7 @@ Route::get('instancia', [InstanceController::class, 'index'])->name('instancia.i
 Route::get('instancia/crear', [InstanceController::class, 'create'])->name('instancia.create')->middleware('auth');
 Route::post('instancia/store', [InstanceController::class, 'store'])->name('instancia.store')->middleware('auth');
 Route::get('instancia/editar/{id}', [InstanceController::class, 'edit'])->name('instancia.edit')->middleware('auth');
+Route::get('instancia/convenio/{id}', [InstanceController::class, 'show'])->name('instancia.show')->middleware('auth');
 Route::put('instancia/actualizar/{id}', [InstanceController::class, 'update'])->name('instancia.update')->middleware('auth');
 Route::delete('instancia/eliminar/{id}', [InstanceController::class, 'destroy'])->name('instancia.destroy')->middleware('auth');
 /* -------------------------------------------------------------------------- */
