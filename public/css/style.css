@@ -76,6 +76,13 @@ body {
     width: auto;
     height: 55px;
 }
+.scroll-check {
+    height: 140px;
+    overflow-y: scroll;
+}
+.inline_label {
+    width: 100%;
+}
 @media (max-width: 767.98px) {
     #body-main {
         width: 100%;

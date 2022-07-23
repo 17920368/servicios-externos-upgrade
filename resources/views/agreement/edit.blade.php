@@ -104,7 +104,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                {!! Form::label('', 'Indicador SYSAD', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
+                                {!! Form::label('', 'Indicador', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
                                     {!! Form::select('indicator_id', $indicators, $agreement->indicator_id, [
                                         'class' => 'form-select',
@@ -116,6 +116,55 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                {!! Form::label('', 'Indicador SYSAD', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
+                                <div class="col-md-6">
+                                    {!! Form::select('sysad_indicator_id', $sysadIndicators, $agreement->sysad_id, [
+                                        'class' => 'form-select',
+                                        'id' => 'sysad_indicator_id',
+                                        'placeholder' => 'Seleccione',
+                                    ]) !!}
+                                    @error('sysad_indicator_id')
+                                        <strong class="text-danger text-center mt-5">{{ $message }}</strong>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                {!! Form::label('specialties_id', 'Carreras', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
+                                <div class="col-md-6">
+                                    <div class="form-check scroll-check">
+                                        @foreach ($specialties as $specialty)
+                                            <label class="form-check-label inline_label">
+                                                {!! Form::checkbox('specialties_id[]', $specialty->id, null, [
+                                                    'class' => 'form-check-input',
+                                                    'id' => $specialty->id,
+                                                ]) !!}
+                                                {{ $specialty->name }}
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                    @error('specialties_id')
+                                        <strong class="text-danger text-center mt-5">{{ $message }}</strong>
+                                    @enderror
+                                </div>
+                            </div>
+                            @foreach ($agreement->agreement_specialty as $registre)
+                                @foreach ($specialties as $specialty)
+                                    @if ($specialty->id == $registre->id)
+                                        <script>
+                                            checkActive({{ $specialty->id }});
+
+                                            function checkActive(idSpecialty) {
+                                                // let id = idStudy;
+                                                let checkSpecialty = document.getElementById(
+                                                    idSpecialty
+                                                );
+                                                checkSpecialty.setAttribute("checked", "");
+                                            }
+                                        </script>
+                                    @endif
+                                @endforeach
+                            @endforeach
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     {{ Form::button('<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar', [

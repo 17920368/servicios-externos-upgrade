@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                {!! Form::label('', 'Indicador SYSAD', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
+                                {!! Form::label('', 'Indicador', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
                                     {!! Form::select('indicator_id', $indicators, '', [
                                         'class' => 'form-select',
@@ -110,32 +110,35 @@
                                     @enderror
                                 </div>
                             </div>
-                            {{-- <div class="row mb-3">
-                                {!! Form::label('', 'Giro', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
+                            <div class="row mb-3">
+                                {!! Form::label('', 'Indicador SYSAD', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::select('classification_id', $classifications, '', [
+                                    {!! Form::select('sysad_indicator_id', $sysadIndicators, '', [
                                         'class' => 'form-select',
-                                        'id' => 'classification_id',
+                                        'id' => 'sysad_indicator_id',
                                         'placeholder' => 'Seleccione',
                                     ]) !!}
-                                    @error('classification_id')
+                                    @error('sysad_indicator_id')
                                         <strong class="text-danger text-center mt-5">{{ $message }}</strong>
                                     @enderror
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                {!! Form::label('', 'Área de conocimiento', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
+                                {!! Form::label('specialties_id', 'Carreras', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::select('area_id', $areas, '', [
-                                        'class' => 'form-select',
-                                        'id' => 'area_id',
-                                        'placeholder' => 'Seleccione',
-                                    ]) !!}
-                                    @error('area_id')
+                                    <div class="form-check scroll-check">
+                                        @foreach ($specialties as $specialty)
+                                            <label class="form-check-label inline_label">
+                                                {!! Form::checkbox('specialties_id[]', $specialty->id, null, ['class' => 'form-check-input']) !!}
+                                                {{ $specialty->name }}
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                    @error('specialties_id')
                                         <strong class="text-danger text-center mt-5">{{ $message }}</strong>
                                     @enderror
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     {{ Form::button('<i class="fa fa-plus" aria-hidden="true"></i> Crear', [
