@@ -148,5 +148,6 @@ Route::get('convenio/editar/{id}', [AgreementController::class, 'edit'])->name('
 Route::put('convenio/actualizar/{id}', [AgreementController::class, 'update'])->name('convenio.update')->middleware('auth');
 Route::delete('convenio/eliminar/{id}', [AgreementController::class, 'destroy'])->name('convenio.destroy')->middleware('auth');
 Route::get('convenios/vigentes', [AgreementController::class, 'currentAgreements'])->name('convenio.vigentes')->middleware('auth');
+Route::get('convenios/vigentes-marco', [AgreementController::class, 'currentMarcoAgreements'])->name('convenio.vigentes.marco')->middleware('auth');
 Route::get('convenios/finalizados', [AgreementController::class, 'finalizedAgreements'])->name('convenio.finalizados')->middleware('auth');
 Route::get('convenios/concluidos', [AgreementController::class, 'canceledAgreements'])->name('convenio.concluidos')->middleware('auth');

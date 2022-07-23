@@ -6,8 +6,13 @@
             <div class="col-md-10 col-lg-12 col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="text-center h4">Listado de convenios {{ $status[$index] }}
-                        </h1>
+                        @if (isset($title))
+                            <h1 class="text-center h4">Listado de convenios {{ $title }} {{ $status[$index] }}
+                            </h1>
+                        @else
+                            <h1 class="text-center h4">Listado de convenios {{ $status[$index] }}
+                            </h1>
+                        @endif
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}

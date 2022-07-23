@@ -123,7 +123,7 @@
                                     <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">
                                         <i class="fas fa-calendar-check"></i> {{ __('CONVENIOS VIGENTES') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">
+                                    <a class="dropdown-item" href="{{ route('convenio.vigentes.marco') }}">
                                         <i class="fas fa-calendar-check"></i> {{ __('CONVENIOS MARCOS VIGENTES') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">

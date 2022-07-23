@@ -120,21 +120,29 @@ class AgreementController extends Controller
     public function currentAgreements()
     {
         $agreements = Agreement::where('status', '=', 0)->paginate(10);
-        $status = ["Vigente", "Finalizado", "Cancelado"];
+        $status = ["vigentes", "finalizados", "cancelados"];
         $index = 0;
         return view('agreement.agreement_report', compact('agreements', 'status', 'index'));
+    }
+    public function currentMarcoAgreements()
+    {
+        $agreements = Agreement::where('agreement_type_id', '=', 1)->paginate(10);
+        $status = ["vigentes", "finalizados", "cancelados"];
+        $index = 0;
+        $title = "Marco de colaboración académica, científica y tecnológica";
+        return view('agreement.agreement_report', compact('agreements', 'status', 'index', 'title'));
     }
     public function finalizedAgreements()
     {
         $agreements = Agreement::where('status', '=', 1)->paginate(10);
-        $status = ["Vigente", "Finalizado", "Cancelado"];
+        $status = ["vigentes", "finalizados", "cancelados"];
         $index = 1;
         return view('agreement.agreement_report', compact('agreements', 'status', 'index'));
     }
     public function canceledAgreements()
     {
         $agreements = Agreement::where('status', '=', 2)->paginate(10);
-        $status = ["Vigente", "Finalizado", "Cancelado"];
+        $status = ["vigentes", "finalizados", "cancelados"];
         $index = 2;
         return view('agreement.agreement_report', compact('agreements', 'status', 'index'));
     }
