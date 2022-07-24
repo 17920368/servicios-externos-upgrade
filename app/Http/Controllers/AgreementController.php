@@ -10,6 +10,7 @@ use App\Models\Specialty;
 use App\Models\SysadIndicator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AgreementController extends Controller
 {
@@ -145,5 +146,71 @@ class AgreementController extends Controller
         $status = ["vigentes", "finalizados", "cancelados"];
         $index = 2;
         return view('agreement.agreement_report', compact('agreements', 'status', 'index'));
+    }
+    public function indicatorAgreements(Request $request)
+    {
+        $sysadIndicators = SysadIndicator::pluck('description', 'id');
+        $trimesters = [1, 2, 3, 4];
+        $status = ["Vigentes", "Finalizados", "Cancelados"];
+        $years = $this->currentYear();
+        $year = $request->year;
+        $dates = null;
+        $agreements = [];
+        $data_request = [null, null, null];
+        /* -------------------------------------------------------------------------- */
+        /*                                   Response                                 */
+        /* -------------------------------------------------------------------------- */
+        if ($year != null) {
+            $dates = $this->yearToDates($years, $year, $request->trimester);
+            $agreements = $this->getAgreements($request->sysad_indicator_id, $dates);
+            $data_request = [$request->sysad_indicator_id, $request->trimester, $year];
+        }
+        return view('agreement.indicator_agreement_report', compact('sysadIndicators', 'agreements', 'status', 'trimesters', 'years', 'data_request'));
+    }
+    public function currentYear()
+    {
+        $current_year = date("Y");
+        $years = [];
+        for ($i = 2017; $i <= $current_year; $i++) {
+            array_push($years, $i);
+        }
+        return $years;
+    }
+    public function yearToDates($years, $year, $trimester)
+    {
+        $start_date = "";
+        $end_date = "";
+        switch ($trimester) {
+            case 0:
+                $start_date = "-01-01";
+                $end_date = "-03-31";
+                break;
+            case 1:
+                $start_date = "-04-01";
+                $end_date = "-06-31";
+                break;
+            case 2:
+                $start_date = "-07-01";
+                $end_date = "-09-31";
+                break;
+            case 3:
+                $start_date = "-10-01";
+                $end_date = "-12-31";
+                break;
+            default:
+                $start_date = "";
+                $end_date = "";
+                break;
+        }
+        $dates = [$years[$year] . $start_date, $years[$year] . $end_date];
+        return $dates;
+    }
+    public function getAgreements($sysad_id, $dates)
+    {
+        $agreements = DB::table('agreements')
+            ->where('sysad_id', '=', $sysad_id)
+            ->where('status', '=', 0)
+            ->whereBetween('start_date', [$dates[0], $dates[1]])->paginate(10);
+        return $agreements;
     }
 }

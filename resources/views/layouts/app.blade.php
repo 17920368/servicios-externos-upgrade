@@ -135,7 +135,7 @@
                                     <a class="dropdown-item" href="{{ route('convenio.concluidos') }}">
                                         <i class="fas fa-calendar-minus"></i> {{ __('CONVENIOS CANCELADOS') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('convenio.concluidos') }}">
+                                    <a class="dropdown-item" href="{{ route('convenio.indicador') }}">
                                         <i class="fas fa-list-alt"></i> {{ __('INDICADORES SYSAD') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('convenio.concluidos') }}">
@@ -174,11 +174,11 @@
     </div>
 </body>
 <style>
-    .card-body {
+    .table-bordered {
         background-image: url("{{ asset('img/itvo.ico') }}");
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 20%;
+        background-size: 10%;
     }
 </style>
 

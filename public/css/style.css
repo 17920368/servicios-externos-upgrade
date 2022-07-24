@@ -97,9 +97,9 @@ body {
     }
 }
 .ancla {
-    display: inline-block;
-    margin-right: 10px;
-    border-radius: 50%;
+    display: inline-block !important;
+    margin-right: 10px !important;
+    border-radius: 50% !important;
 }
 /* -------------------------------------------------------------------------- */
 /*                                 Custom btn                                 */
