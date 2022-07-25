@@ -101,6 +101,10 @@ body {
     margin-right: 10px !important;
     border-radius: 50% !important;
 }
+#search {
+    border-start-start-radius: 0 !important;
+    border-end-start-radius: 0 !important;
+}
 /* -------------------------------------------------------------------------- */
 /*                                 Custom btn                                 */
 /* -------------------------------------------------------------------------- */

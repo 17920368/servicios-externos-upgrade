@@ -14,8 +14,8 @@
                             </div>
                         @endif
                         <div class="d-flex justify-content-end flex-wrap">
-                            <a class="btn btn-primary my-2 ancla" href="{{ route('indicador-sysad.create') }}"
-                                role="button" title="Crear indicador sysad">
+                            <a class="btn btn-primary my-2 ancla" href="{{ route('indicador-sysad.create') }}" role="button"
+                                title="Crear indicador sysad">
                                 <i class="fas fa-plus"></i></a>
                             <a class=" btn btn-secondary my-2 ancla" href="{{ route('indicador-sysad.index') }}"
                                 role="button" title="Lista completa">
@@ -27,7 +27,7 @@
                                         <input type="text" name="search" class="form-control" placeholder="Buscar"
                                             required />
                                     </div>
-                                    <button type="submit" class="btn btn-primary ancla">
+                                    <button type="submit" class="btn btn-primary ancla" id="search">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </form>

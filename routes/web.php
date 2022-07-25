@@ -152,3 +152,4 @@ Route::get('convenios/vigentes-marco', [AgreementController::class, 'currentMarc
 Route::get('convenios/finalizados', [AgreementController::class, 'finalizedAgreements'])->name('convenio.finalizados')->middleware('auth');
 Route::get('convenios/cancelados', [AgreementController::class, 'canceledAgreements'])->name('convenio.concluidos')->middleware('auth');
 Route::get('convenios/indicadores', [AgreementController::class, 'sysadIndicatorAgreements'])->name('convenio.indicador')->middleware('auth');
+Route::get('convenios/vigentes-por-fecha', [AgreementController::class, 'getCurrentAgreementsByDate'])->name('agreement.by.date')->middleware('auth');

@@ -17,8 +17,8 @@
                             <a class="btn btn-primary my-2 ancla" href="{{ route('tipo-sector.create') }}" role="button"
                                 title="Crear tipo de sector">
                                 <i class="fa fa-plus"></i></a>
-                            <a class=" btn btn-secondary my-2 ancla" href="{{ route('tipo-sector.index') }}"
-                                role="button" title="Lista completa">
+                            <a class=" btn btn-secondary my-2 ancla" href="{{ route('tipo-sector.index') }}" role="button"
+                                title="Lista completa">
                                 <i class="fas fa-list-ul"></i></a>
                             <div class="my-2">
                                 <form action="{{ route('tipo-sector.index') }}"
@@ -27,7 +27,7 @@
                                         <input type="text" name="search" class="form-control" placeholder="Buscar"
                                             required />
                                     </div>
-                                    <button type="submit" class="btn btn-primary ancla">
+                                    <button type="submit" class="btn btn-primary ancla" id="search">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </form>

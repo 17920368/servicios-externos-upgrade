@@ -6,7 +6,7 @@
             <div class="col-md-10 col-lg-12 col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="text-center h4">Reporte de indicadores por trimestre
+                        <h1 class="text-center h4">Reporte de indicadores por fecha
                         </h1>
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -15,27 +15,13 @@
                         @endif
                         <div class="d-flex justify-content-center flex-wrap">
                             <div class="my-2">
-                                <form action="{{ route('convenio.indicador') }}"
+                                <form action="{{ route('agreement.by.date') }}"
                                     class="input-group d-flex justify-content-center" id="form">
-                                    <div class="form-outline ancla w-25">
-                                        {!! Form::select('sysad_indicator_id', $sysadIndicators, $data_request[0], [
-                                            'class' => ['form-select'],
-                                            'id' => 'sysad_indicator_id',
-                                            'placeholder' => 'Seleccione indicador',
-                                        ]) !!}
-                                    </div>
-                                    <div class="form-outline ancla w-25">
-                                        {!! Form::select('trimester', $trimesters, $data_request[1], [
-                                            'class' => ['form-select'],
-                                            'id' => 'trimester',
-                                            'placeholder' => 'Seleccione trimestre',
-                                        ]) !!}
-                                    </div>
-                                    <div class="form-outline ancla w-25">
-                                        {!! Form::select('year', $years, $data_request[2], [
-                                            'class' => ['form-select'],
-                                            'id' => 'year',
-                                            'placeholder' => 'Seleccione año',
+                                    <div class="form-outline ancla">
+                                        {!! Form::date('date', $date, [
+                                            'class' => 'form-control',
+                                            'autofocus',
+                                            'required',
                                         ]) !!}
                                     </div>
                                     <button id="btn_submit" type="submit" title="Buscar" class="btn btn-primary ancla">
@@ -45,9 +31,14 @@
                                         class="btn btn-danger ancla">
                                         <i class="fas fa-backspace"></i>
                                     </button>
-                                    {{-- <button type="submit" title="Ver indicadores" class="btn btn-secondary ancla">
-                                    <i class="fa fa-bullseye"></i>
-                                </button> --}}
+                                    <button type="button" title="Ver indicadores" class="btn btn-secondary ancla">
+                                        <i class="fa fa-bullseye"></i>
+                                    </button>
+                                    {{-- <a tid="modal-btn" ype="button" href="#" class="btn btn-primary ml-5"
+                                        data-toggle="modal" data-target="#exampleModal">
+                                        <i class="bi bi-calculator"></i>
+                                        VER CANTIDAD
+                                    </a> --}}
                                 </form>
                             </div>
                         </div>
@@ -99,9 +90,9 @@
                         @endif
                     </tbody>
                 </table>
-                @if (count($agreements) != 0)
+                {{-- @if (count($agreements) != 0)
                     {{ $agreements->links() }}
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>
@@ -123,7 +114,7 @@
     })
 
     function clearSearch() {
-        location.href = "{{ route('convenio.indicador') }}";
+        location.href = "{{ route('agreement.by.date') }}";
     }
 
     function dataValidate() {
@@ -141,8 +132,7 @@
     })
 
     function formValidate(e, formData) {
-        if (formData.get("sysad_indicator_id") == "" || formData.get("trimester") == "" ||
-            formData.get("year") == "") {
+        if (formData.get("date") == "") {
             e.preventDefault();
             alert("Favor de completar el formulario");
         }

@@ -11,10 +11,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
     <link rel="shortcut icon" href="{{ asset('img/itvo.ico') }}" sizes="16x16 24x24 36x36 48x48" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -126,7 +126,7 @@
                                     <a class="dropdown-item" href="{{ route('convenio.vigentes.marco') }}">
                                         <i class="fas fa-calendar-check"></i> {{ __('CONVENIOS MARCOS VIGENTES') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">
+                                    <a class="dropdown-item" href="{{ route('agreement.by.date') }}">
                                         <i class="fas fa-calendar-check"></i> {{ __('CONVENIOS VIGENTES POR FECHA') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('convenio.finalizados') }}">

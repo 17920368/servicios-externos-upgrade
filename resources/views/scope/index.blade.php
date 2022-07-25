@@ -21,13 +21,12 @@
                                 title="Lista completa">
                                 <i class="fas fa-list-ul"></i></a>
                             <div class="my-2">
-                                <form action="{{ route('alcance.index') }}"
-                                    class="input-group d-flex justify-content-end">
+                                <form action="{{ route('alcance.index') }}" class="input-group d-flex justify-content-end">
                                     <div class="form-outline">
                                         <input type="text" name="search" class="form-control" placeholder="Buscar"
                                             required />
                                     </div>
-                                    <button type="submit" class="btn btn-primary ancla">
+                                    <button type="submit" class="btn btn-primary ancla" id="search">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </form>

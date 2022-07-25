@@ -227,11 +227,14 @@ class AgreementController extends Controller
     }
     public function getCurrentAgreementsByDate(Request $request)
     {
+        $instances = Instance::all();
+        $agreements_types = AgreementType::all();
+        $status = ["Vigente", "Finalizado", "Cancelado"];
         $date = $request->date;
         $agreements = DB::select(
             'select * from agreements where (start_date <= ? OR end_date <= ? ) AND status = "0"',
             [$date, $date]
         );
-        return view('agreement.indicator_agreement_report', compact('instances', 'agreements_types', 'sysadIndicators', 'agreements', 'status', 'trimesters', 'years', 'data_request'));
+        return view('agreement.current_agreement_by_date_report', compact('instances', 'agreements_types', 'agreements', 'status', 'date'));
     }
 }

@@ -27,7 +27,7 @@
                                         <input type="text" name="search" class="form-control" placeholder="Buscar"
                                             required />
                                     </div>
-                                    <button type="submit" class="btn btn-primary ancla">
+                                    <button type="submit" class="btn btn-primary ancla" id="search">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </form>
