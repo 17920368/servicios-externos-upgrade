@@ -147,16 +147,28 @@ class AgreementController extends Controller
         $index = 2;
         return view('agreement.agreement_report', compact('agreements', 'status', 'index'));
     }
-    public function indicatorAgreements(Request $request)
+    /* -------------------------------------------------------------------------- */
+    /*                         Sysad Indicator Agreements                         */
+    /* -------------------------------------------------------------------------- */
+    public function sysadIndicatorAgreements(Request $request)
     {
-        $sysadIndicators = SysadIndicator::pluck('description', 'id');
-        $trimesters = [1, 2, 3, 4];
-        $status = ["Vigentes", "Finalizados", "Cancelados"];
-        $years = $this->currentYear();
+        /* -------------------------------------------------------------------------- */
+        /*                                Validate data                               */
+        /* -------------------------------------------------------------------------- */
         $year = $request->year;
         $dates = null;
         $agreements = [];
         $data_request = [null, null, null];
+        /* -------------------------------------------------------------------------- */
+        /*                                  Set data                                  */
+        /* -------------------------------------------------------------------------- */
+        $sysadIndicators = SysadIndicator::pluck('description', 'id');
+        $trimesters = [1, 2, 3, 4];
+        $status = ["Vigente", "Finalizado", "Cancelado"];
+        $years = $this->currentYear();
+        $agreements_types = AgreementType::all();
+        $instances = Instance::all();
+
         /* -------------------------------------------------------------------------- */
         /*                                   Response                                 */
         /* -------------------------------------------------------------------------- */
@@ -165,7 +177,7 @@ class AgreementController extends Controller
             $agreements = $this->getAgreements($request->sysad_indicator_id, $dates);
             $data_request = [$request->sysad_indicator_id, $request->trimester, $year];
         }
-        return view('agreement.indicator_agreement_report', compact('sysadIndicators', 'agreements', 'status', 'trimesters', 'years', 'data_request'));
+        return view('agreement.indicator_agreement_report', compact('instances', 'agreements_types', 'sysadIndicators', 'agreements', 'status', 'trimesters', 'years', 'data_request'));
     }
     public function currentYear()
     {
@@ -212,5 +224,14 @@ class AgreementController extends Controller
             ->where('status', '=', 0)
             ->whereBetween('start_date', [$dates[0], $dates[1]])->paginate(10);
         return $agreements;
+    }
+    public function getCurrentAgreementsByDate(Request $request)
+    {
+        $date = $request->date;
+        $agreements = DB::select(
+            'select * from agreements where (start_date <= ? OR end_date <= ? ) AND status = "0"',
+            [$date, $date]
+        );
+        return view('agreement.indicator_agreement_report', compact('instances', 'agreements_types', 'sysadIndicators', 'agreements', 'status', 'trimesters', 'years', 'data_request'));
     }
 }
