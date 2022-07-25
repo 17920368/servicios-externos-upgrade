@@ -17,11 +17,12 @@ class AgreementController extends Controller
     public function index(Request $request)
     {
         $agreements = Agreement::paginate(10);
+        $specialties = Specialty::pluck('name', 'id');
         $status = ["Vigente", "Finalizado", "Cancelado"];
-        // if ($request->search) {
-        //     $agreements = Agreement::where('name', 'like', '%' . $request->search . '%')->paginate(10);
-        // }
-        return view('agreement.index', compact('agreements', 'status'));
+        if ($request->search) {
+            $agreements = Agreement::where('invoice', 'like', '%' . $request->search . '%')->paginate(10);
+        }
+        return view('agreement.index', compact('agreements', 'status', 'specialties'));
     }
 
     public function create()

@@ -20,6 +20,13 @@
                             <a class=" btn btn-secondary my-2 ancla" href="{{ route('convenio.index') }}" role="button"
                                 title="Lista completa">
                                 <i class="fas fa-list-ul"></i></a>
+                            <div class="my-2 w-25 ancla">
+                                {!! Form::select('specialty_id', $specialties, '', [
+                                    'class' => ['form-select', 'w-100', 'mw-100'],
+                                    'id' => 'specialty_id',
+                                    'placeholder' => 'Seleccione carrera',
+                                ]) !!}
+                            </div>
                             <div class="my-2">
                                 <form action="{{ route('convenio.index') }}" class="input-group d-flex justify-content-end">
                                     <div class="form-outline">
