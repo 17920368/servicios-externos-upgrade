@@ -107,7 +107,7 @@
     </div>
 </div>
 </div>
-{{-- <script defer>
+<script defer>
     const btn_clear = document.getElementById("btn_clear");
     const btn_submit = document.getElementById("btn_submit");
     btn_clear.addEventListener('click', (e) => {
@@ -147,5 +147,5 @@
             alert("Favor de completar el formulario");
         }
     }
-</script> --}}
+</script>
 @endsection
