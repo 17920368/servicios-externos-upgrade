@@ -152,7 +152,7 @@
                                     <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">
                                         <i class="fas fa-project-diagram"></i> {{ __('ROLES') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('convenio.vigentes.marco') }}">
+                                    <a class="dropdown-item" href="{{ route('users.index') }}">
                                         <i class="fas fa-users"></i> {{ __('USUARIOS') }}
                                     </a>
                                     {{-- <a class="dropdown-item" href="{{ route('agreement.by.date') }}">

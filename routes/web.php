@@ -12,6 +12,7 @@ use App\Http\Controllers\SectorTypeController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\SysadIndicatorController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -154,3 +155,19 @@ Route::get('convenios/cancelados', [AgreementController::class, 'canceledAgreeme
 Route::get('convenios/indicadores', [AgreementController::class, 'sysadIndicatorAgreements'])->name('convenio.indicador')->middleware('auth');
 Route::get('convenios/vigentes-por-fecha', [AgreementController::class, 'getCurrentAgreementsByDate'])->name('agreement.by.date')->middleware('auth');
 Route::get('convenios/por-carrera/{idSpecialty}', [AgreementController::class, 'getAgreementsBySpecialties'])->name('agreement.by.specialty')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                                 User route                                 */
+/* -------------------------------------------------------------------------- */
+Route::get('usuarios', [UserController::class, 'index'])->name('users.index')->middleware('auth');
+Route::get('usuarios/crear', [UserController::class, 'create'])->name('users.create')->middleware('auth');
+Route::post('usuarios/store', [UserController::class, 'store'])->name('users.store')->middleware('auth');
+Route::get('usuarios/editar/{id}', [UserController::class, 'edit'])->name('users.edit')->middleware('auth');
+Route::put('usuarios/actualizar/{id}', [UserController::class, 'update'])->name('users.update')->middleware('auth');
+Route::delete('usuarios/eliminar/{id}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('auth');
+// Route::get('usuarios/vigentes', [AgreementController::class, 'currentAgreements'])->name('convenio.vigentes')->middleware('auth');
+// Route::get('usuarios/vigentes-marco', [AgreementController::class, 'currentMarcoAgreements'])->name('convenio.vigentes.marco')->middleware('auth');
+// Route::get('usuarios/finalizados', [AgreementController::class, 'finalizedAgreements'])->name('convenio.finalizados')->middleware('auth');
+// Route::get('usuarios/cancelados', [AgreementController::class, 'canceledAgreements'])->name('convenio.concluidos')->middleware('auth');
+// Route::get('usuarios/indicadores', [AgreementController::class, 'sysadIndicatorAgreements'])->name('convenio.indicador')->middleware('auth');
+// Route::get('usuarios/vigentes-por-fecha', [AgreementController::class, 'getCurrentAgreementsByDate'])->name('agreement.by.date')->middleware('auth');
+// Route::get('usuarios/por-carrera/{idSpecialty}', [AgreementController::class, 'getAgreementsBySpecialties'])->name('agreement.by.specialty')->middleware('auth');
