@@ -10,10 +10,12 @@ class AreaController extends Controller
     public function index(Request $request)
     {
         $areas = Area::paginate(10);
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $areas = Area::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('area.index', compact('areas'));
+        return view('area.index', compact('areas', 'search_to_word'));
     }
 
     public function create()

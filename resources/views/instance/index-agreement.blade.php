@@ -15,10 +15,10 @@
                             </div>
                         @endif
                         <div class="d-flex justify-content-end flex-wrap">
-                            {{-- <a class="btn btn-primary my-2 ancla" href="{{ route('convenio.create') }}" role="button"
-                                title="Crear convenio">
-                                <i class="fas fa-plus"></i></a>
-                            <a class=" btn btn-secondary my-2 ancla" href="{{ route('convenio.index') }}" role="button"
+                            <a class="btn btn-primary my-2 ancla" href="{{ route('instancia.index') }}" role="button"
+                                title="Regresar">
+                                <i class="fas fa-arrow-left"></i></a>
+                            {{-- <a class=" btn btn-secondary my-2 ancla" href="{{ route('convenio.index') }}" role="button"
                                 title="Lista completa">
                                 <i class="fas fa-list-ul"></i></a> --}}
                             {{-- <div class="my-2">

@@ -19,10 +19,13 @@ class AgreementController extends Controller
         $agreements = Agreement::paginate(10);
         $specialties = Specialty::pluck('name', 'id');
         $status = ["Vigente", "Finalizado", "Cancelado"];
+        $idSpecialty = null;
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $agreements = Agreement::where('invoice', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('agreement.index', compact('agreements', 'status', 'specialties'));
+        return view('agreement.index', compact('agreements', 'status', 'specialties', 'idSpecialty', 'search_to_word'));
     }
 
     public function create()
@@ -245,6 +248,6 @@ class AgreementController extends Controller
         $specialties = Specialty::pluck('name', 'id');
         $status = ["Vigente", "Finalizado", "Cancelado"];
         $validate = 1;
-        return view('agreement.index', compact('agreements', 'status', 'specialties', 'validate'));
+        return view('agreement.index', compact('agreements', 'status', 'specialties', 'validate', 'idSpecialty'));
     }
 }

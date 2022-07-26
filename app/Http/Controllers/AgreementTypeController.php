@@ -10,11 +10,12 @@ class AgreementTypeController extends Controller
     public function index(Request $request)
     {
         $agreements_types = AgreementType::paginate(10);
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $agreements_types = AgreementType::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-
-        return view('agreement_type.index', compact('agreements_types'));
+        return view('agreement_type.index', compact('agreements_types', 'search_to_word'));
     }
 
     public function create()

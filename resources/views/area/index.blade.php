@@ -23,8 +23,8 @@
                             <div class="my-2">
                                 <form action="{{ route('area.index') }}" class="input-group d-flex justify-content-end">
                                     <div class="form-outline">
-                                        <input type="text" name="search" class="form-control" placeholder="Buscar"
-                                            required />
+                                        <input type="text" value="{{ $search_to_word }}" name="search"
+                                            class="form-control" placeholder="Buscar" required />
                                     </div>
                                     <button type="submit" class="btn btn-primary ancla" id="search">
                                         <i class="fa fa-search"></i>

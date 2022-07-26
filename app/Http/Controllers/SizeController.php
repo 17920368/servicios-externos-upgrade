@@ -10,10 +10,12 @@ class SizeController extends Controller
     public function index(Request $request)
     {
         $sizes = Size::paginate(10);
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $sizes = Size::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('size.index', compact('sizes'));
+        return view('size.index', compact('sizes', 'search_to_word'));
     }
 
     public function create()

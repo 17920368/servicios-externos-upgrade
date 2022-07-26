@@ -10,10 +10,12 @@ class IndicatorController extends Controller
     public function index(Request $request)
     {
         $indicators = Indicator::paginate(10);
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $indicators = Indicator::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('indicator.index', compact('indicators'));
+        return view('indicator.index', compact('indicators', 'search_to_word'));
     }
 
     public function create()

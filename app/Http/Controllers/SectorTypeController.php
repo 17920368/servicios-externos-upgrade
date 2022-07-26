@@ -10,10 +10,12 @@ class SectorTypeController extends Controller
     public function index(Request $request)
     {
         $sectors_types = SectorType::paginate(10);
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $sectors_types = SectorType::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('sector_type.index', compact('sectors_types'));
+        return view('sector_type.index', compact('sectors_types', 'search_to_word'));
     }
 
     public function create()

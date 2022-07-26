@@ -17,10 +17,12 @@ class InstanceController extends Controller
     public function index(Request $request)
     {
         $instances = Instance::paginate(10);
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $instances = Instance::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('instance.index', compact('instances'));
+        return view('instance.index', compact('instances', 'search_to_word'));
     }
 
     public function create()

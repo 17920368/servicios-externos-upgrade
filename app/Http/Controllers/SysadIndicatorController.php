@@ -10,10 +10,12 @@ class SysadIndicatorController extends Controller
     public function index(Request $request)
     {
         $indicators = SysadIndicator::paginate(10);
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $indicators = SysadIndicator::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('sysad_indicator.index', compact('indicators'));
+        return view('sysad_indicator.index', compact('indicators', 'search_to_word'));
     }
 
     public function create()

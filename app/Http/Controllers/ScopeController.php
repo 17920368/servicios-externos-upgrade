@@ -10,10 +10,12 @@ class ScopeController extends Controller
     public function index(Request $request)
     {
         $scopes = Scope::paginate(10);
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $scopes = Scope::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('scope.index', compact('scopes'));
+        return view('scope.index', compact('scopes', 'search_to_word'));
     }
 
     public function create()

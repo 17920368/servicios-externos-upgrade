@@ -10,10 +10,12 @@ class ClassificationController extends Controller
     public function index(Request $request)
     {
         $classifications = Classification::paginate(10);
+        $search_to_word = "";
         if ($request->search) {
+            $search_to_word = $request->search;
             $classifications = Classification::where('name', 'like', '%' . $request->search . '%')->paginate(10);
         }
-        return view('classification.index', compact('classifications'));
+        return view('classification.index', compact('classifications', 'search_to_word'));
     }
 
     public function create()

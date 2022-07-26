@@ -21,7 +21,7 @@
                                 title="Lista completa">
                                 <i class="fas fa-list-ul"></i></a>
                             <div class="my-2 w-25 ancla">
-                                {!! Form::select('specialty_id', $specialties, '', [
+                                {!! Form::select('specialty_id', $specialties, $idSpecialty, [
                                     'class' => ['form-select', 'w-100', 'mw-100'],
                                     'id' => 'specialty_id',
                                     'placeholder' => 'Seleccione carrera',
@@ -32,8 +32,8 @@
                             <div class="my-2">
                                 <form action="{{ route('convenio.index') }}" class="input-group d-flex justify-content-end">
                                     <div class="form-outline">
-                                        <input type="text" name="search" class="form-control" placeholder="Buscar"
-                                            required />
+                                        <input type="text" value="{{ $search_to_word }}" name="search"
+                                            class="form-control" placeholder="Buscar" required />
                                     </div>
                                     <button type="submit" class="btn btn-primary ancla" id="search">
                                         <i class="fa fa-search"></i>
