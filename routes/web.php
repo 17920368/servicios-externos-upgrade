@@ -153,3 +153,4 @@ Route::get('convenios/finalizados', [AgreementController::class, 'finalizedAgree
 Route::get('convenios/cancelados', [AgreementController::class, 'canceledAgreements'])->name('convenio.concluidos')->middleware('auth');
 Route::get('convenios/indicadores', [AgreementController::class, 'sysadIndicatorAgreements'])->name('convenio.indicador')->middleware('auth');
 Route::get('convenios/vigentes-por-fecha', [AgreementController::class, 'getCurrentAgreementsByDate'])->name('agreement.by.date')->middleware('auth');
+Route::get('convenios/por-carrera/{idSpecialty}', [AgreementController::class, 'getAgreementsBySpecialties'])->name('agreement.by.specialty')->middleware('auth');

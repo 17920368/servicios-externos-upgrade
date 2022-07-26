@@ -146,6 +146,35 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fas fa-cogs"></i> {{ __('CONFIGURACIÓN') }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">
+                                        <i class="fas fa-project-diagram"></i> {{ __('ROLES') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.vigentes.marco') }}">
+                                        <i class="fas fa-users"></i> {{ __('USUARIOS') }}
+                                    </a>
+                                    {{-- <a class="dropdown-item" href="{{ route('agreement.by.date') }}">
+                                        <i class="fas fa-calendar-check"></i> {{ __('CONVENIOS VIGENTES POR FECHA') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.finalizados') }}">
+                                        <i class="fas fa-calendar-times"></i> {{ __('CONVENIOS FINALIZADOS') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.concluidos') }}">
+                                        <i class="fas fa-calendar-minus"></i> {{ __('CONVENIOS CANCELADOS') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.indicador') }}">
+                                        <i class="fas fa-list-alt"></i> {{ __('INDICADORES SYSAD') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('convenio.concluidos') }}">
+                                        <i class="fas fa-list-alt"></i> {{ __('OTROS INDICADORES') }}
+                                    </a> --}}
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fa fa-user-circle" aria-hidden="true"></i> {{ Auth::user()->name }}
                                 </a>
 

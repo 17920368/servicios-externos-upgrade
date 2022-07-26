@@ -238,4 +238,13 @@ class AgreementController extends Controller
         );
         return view('agreement.current_agreement_by_date_report', compact('instances', 'agreements_types', 'agreements', 'status', 'date'));
     }
+    public function getAgreementsBySpecialties($idSpecialty)
+    {
+        $specialty = Specialty::find($idSpecialty);
+        $agreements = $specialty->agreement_specialty;
+        $specialties = Specialty::pluck('name', 'id');
+        $status = ["Vigente", "Finalizado", "Cancelado"];
+        $validate = 1;
+        return view('agreement.index', compact('agreements', 'status', 'specialties', 'validate'));
+    }
 }

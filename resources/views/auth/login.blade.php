@@ -15,7 +15,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="input-group">
-                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                 <input id="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror text-uppercase" name="email"
                                     value="{{ old('email') }}" required autocomplete="email"
@@ -28,7 +28,7 @@
                             </div>
                             <br>
                             <div class="input-group">
-                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-shield-lock"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                                 <input id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror inputText" name="password"
                                     required autocomplete="current-password" placeholder="CONTRASEÑA">
@@ -55,7 +55,7 @@
                             <div class="form-group">
                                 <div class="">
                                     <button type="submit" class="btn btn-primary button-login">
-                                        {{ __('INGRESAR') }}
+                                        <i class="fas fa-unlock-alt"></i> {{ __('INGRESAR') }}
                                     </button>
 
                                     @if (Route::has('password.request'))

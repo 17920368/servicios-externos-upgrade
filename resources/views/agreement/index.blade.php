@@ -25,6 +25,8 @@
                                     'class' => ['form-select', 'w-100', 'mw-100'],
                                     'id' => 'specialty_id',
                                     'placeholder' => 'Seleccione carrera',
+                                    'onChange' => 'onChangeToResponse()',
+                                    'title' => 'Filtrar por carrera',
                                 ]) !!}
                             </div>
                             <div class="my-2">
@@ -87,10 +89,19 @@
                                 @endif
                             </tbody>
                         </table>
-                        {{ $agreements->links() }}
+                        @if (!isset($validate))
+                            {{ $agreements->links() }}
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function onChangeToResponse() {
+            let specialties = document.getElementById("specialty_id");
+            let specialty_id = specialties.value;
+            location.href = "/convenios/por-carrera/" + specialty_id;
+        }
+    </script>
 @endsection
