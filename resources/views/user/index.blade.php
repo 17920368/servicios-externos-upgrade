@@ -15,7 +15,7 @@
                         @endif
                         <div class="d-flex justify-content-end flex-wrap">
                             <a class="btn btn-primary my-2 ancla" href="{{ route('users.create') }}" role="button"
-                                title="Crear área de conocimiento">
+                                title="Crear usuario">
                                 <i class="fas fa-plus"></i></a>
                             <a class=" btn btn-secondary my-2 ancla" href="{{ route('users.index') }}" role="button"
                                 title="Lista completa">
@@ -66,7 +66,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td>No existen áreas de conocimientos.</td>
+                                        <td>No existen usuarios.</td>
                                     </tr>
                                 @endif
                             </tbody>

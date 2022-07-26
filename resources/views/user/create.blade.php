@@ -52,23 +52,11 @@
                             <div class="row mb-3">
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Confirmar
-                                                                                                                                                                                                                                                        contraseña') }}</label>
+                                                                                                                                                                                                                                                                                            contraseña') }}</label>
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password">
                                     @error('password')
-                                        <strong class="text-danger text-center mt-5">{{ $message }}</strong>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="phone"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Número de celular') }}</label>
-                                <div class="col-md-6">
-                                    <input id="phone" type="text"
-                                        class="form-control @error('phone') is-invalid @enderror" name="phone" required
-                                        value="{{ old('phone') }}">
-                                    @error('phone')
                                         <strong class="text-danger text-center mt-5">{{ $message }}</strong>
                                     @enderror
                                 </div>
