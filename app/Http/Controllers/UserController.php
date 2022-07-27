@@ -39,14 +39,14 @@ class UserController extends Controller
                 'unique:users',
             ],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // 'roles' => 'required|min:1|max:1'
+            'roles' => 'required|min:1|max:1'
         ]);
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
-        // $user->roles()->attach($request->roles);
+        $user->roles()->attach($request->roles);
         return redirect()->route('users.index');
     }
 
@@ -72,13 +72,13 @@ class UserController extends Controller
                     'max:255',
                 ],
                 'password' => ['required', 'string', 'min:8'],
-                // 'roles' => 'required|min:1'
+                'roles' => 'required|min:1'
             ]);
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->save();
-            // $user->roles()->sync($request->roles);
+            $user->roles()->sync($request->roles);
             return redirect()->route('users.index');
         }
     }

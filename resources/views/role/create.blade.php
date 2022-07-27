@@ -6,24 +6,46 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h1 class="text-center">Crear área de conocimiento
+                        <h1 class="text-center">Crear rol
                         </h1>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('area.store') }}" id="form">
-                            @csrf
+                        <form method="POST" action="{{ route('roles.store') }}" id="form">
                             <div class="row mb-3">
-                                {!! Form::label('', 'Nombre', ['class' => 'col-md-4 col-form-label text-md-end']) !!}
+                                {!! Form::label('', 'Nombre del rol', [
+                                    'class' => 'col-md-4 col-form-label text-md-end',
+                                ]) !!}
                                 <div class="col-md-6">
                                     {!! Form::text('name', '', [
                                         'class' => 'form-control',
                                         'autofocus',
                                         'required',
                                         'autofocus',
-                                        'id' => 'area',
-                                        'onkeyup' => 'firstLetterToCapitalize(area);',
+                                        'id' => 'rol',
+                                        'onkeyup' => 'firstLetterToCapitalize(rol);',
                                     ]) !!}
                                     @error('name')
+                                        <strong class="text-danger text-center mt-5">{{ $message }}</strong>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                {!! Form::label('permissions', 'Permisos', [
+                                    'class' => 'col-md-4 col-form-label text-md-end',
+                                ]) !!}
+                                <div class="col-md-6">
+                                    <div class="form-check scroll-permissions">
+                                        @foreach ($permissions as $permission)
+                                            <label class="form-check-label inline_label" required>
+                                                {!! Form::checkbox('permissions[]', $permission->id, null, [
+                                                    'class' => 'form-check-input',
+                                                    'id' => $permission->id,
+                                                ]) !!}
+                                                {{ $permission->description }}
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                    @error('permissions')
                                         <strong class="text-danger text-center mt-5">{{ $message }}</strong>
                                     @enderror
                                 </div>
@@ -35,7 +57,7 @@
                                         'class' => 'btn btn-primary',
                                         'id' => 'btn-submit',
                                     ]) }}
-                                    <a class="btn btn-danger" href="{{ route('area.index') }}"><i class="fa fa-ban"
+                                    <a class="btn btn-danger" href="{{ route('roles.index') }}"><i class="fa fa-ban"
                                             aria-hidden="true"></i>
                                         Cancelar
                                     </a>

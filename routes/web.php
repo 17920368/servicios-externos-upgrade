@@ -6,6 +6,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\ClassificationController;
 use App\Http\Controllers\InstanceController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ScopeController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\SectorTypeController;
@@ -164,10 +165,12 @@ Route::post('usuarios/store', [UserController::class, 'store'])->name('users.sto
 Route::get('usuarios/editar/{id}', [UserController::class, 'edit'])->name('users.edit')->middleware('auth');
 Route::put('usuarios/actualizar/{id}', [UserController::class, 'update'])->name('users.update')->middleware('auth');
 Route::delete('usuarios/eliminar/{id}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('auth');
-// Route::get('usuarios/vigentes', [AgreementController::class, 'currentAgreements'])->name('convenio.vigentes')->middleware('auth');
-// Route::get('usuarios/vigentes-marco', [AgreementController::class, 'currentMarcoAgreements'])->name('convenio.vigentes.marco')->middleware('auth');
-// Route::get('usuarios/finalizados', [AgreementController::class, 'finalizedAgreements'])->name('convenio.finalizados')->middleware('auth');
-// Route::get('usuarios/cancelados', [AgreementController::class, 'canceledAgreements'])->name('convenio.concluidos')->middleware('auth');
-// Route::get('usuarios/indicadores', [AgreementController::class, 'sysadIndicatorAgreements'])->name('convenio.indicador')->middleware('auth');
-// Route::get('usuarios/vigentes-por-fecha', [AgreementController::class, 'getCurrentAgreementsByDate'])->name('agreement.by.date')->middleware('auth');
-// Route::get('usuarios/por-carrera/{idSpecialty}', [AgreementController::class, 'getAgreementsBySpecialties'])->name('agreement.by.specialty')->middleware('auth');
+/* -------------------------------------------------------------------------- */
+/*                                 Role route                                 */
+/* -------------------------------------------------------------------------- */
+Route::get('rol', [RoleController::class, 'index'])->name('roles.index')->middleware('auth');
+Route::get('rol/crear', [RoleController::class, 'create'])->name('roles.create')->middleware('auth');
+Route::post('rol/store', [RoleController::class, 'store'])->name('roles.store')->middleware('auth');
+Route::get('rol/editar/{role}', [RoleController::class, 'edit'])->name('roles.edit')->middleware('auth');
+Route::put('rol/actualizar/{role}', [RoleController::class, 'update'])->name('roles.update')->middleware('auth');
+Route::delete('rol/eliminar/{role}', [RoleController::class, 'destroy'])->name('roles.destroy')->middleware('auth');

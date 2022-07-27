@@ -37,7 +37,7 @@
                             <div class="row mb-3">
                                 <label for="email"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Dirección de correo
-                                                                                                        electrónico') }}</label>
+                                                                                                                                            electrónico') }}</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email" required
@@ -78,20 +78,20 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- @foreach ($user->roles as $registre)
-                        @foreach ($roles as $rol)
-                        @if ($rol->id == $registre->id)
-                        <script>
-                            checkActive({{ $rol->id }});
+                            @foreach ($user->roles as $registre)
+                                @foreach ($roles as $rol)
+                                    @if ($rol->id == $registre->id)
+                                        <script>
+                                            checkActive({{ $rol->id }});
 
-                        function checkActive(idRol) {
-                        let checkRol = document.getElementById(idRol);
-                        checkRol.setAttribute("checked", "");
-                        }
-                        </script>
-                        @endif
-                        @endforeach
-                        @endforeach --}}
+                                            function checkActive(idRol) {
+                                                let checkRol = document.getElementById(idRol);
+                                                checkRol.setAttribute("checked", "");
+                                            }
+                                        </script>
+                                    @endif
+                                @endforeach
+                            @endforeach
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     {{ Form::button('<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar', [

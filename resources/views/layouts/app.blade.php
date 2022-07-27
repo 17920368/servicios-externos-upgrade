@@ -149,7 +149,7 @@
                                     <i class="fas fa-cogs"></i> {{ __('CONFIGURACIÓN') }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('convenio.vigentes') }}">
+                                    <a class="dropdown-item" href="{{ route('roles.index') }}">
                                         <i class="fas fa-project-diagram"></i> {{ __('ROLES') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('users.index') }}">
